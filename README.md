@@ -59,5 +59,5 @@ Website profil dan katalog produk resmi untuk **Rumah Siffon**, UMKM kuliner spe
 
 ## 👤 Author
 
-- **Rumah Siffon** - UMKM KWT Tegal Besar, Jember
+- **Rumah Siffon** - Kue Berkualitas , Jember
 - **Pengembang**: [surobyy](https://github.com/surobyy)
