@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/build/
+
+Sitemap: https://kwtsitara.vercel.app/sitemap.xml

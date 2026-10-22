@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <title>Rumah Siffon | Kontak</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+
+    <link rel="shortcut icon" href="assets/images/rumah-siffon/logo-rumah-siffon.png" type="image/png" />
+
+    <!-- Primary Meta Tags -->
+    <meta name="keywords"
+        content="Rumah Siffon, cake, bakery, proll tape, kue, Jember, Banyuwangi, cake bakery Jember" />
+    <meta name="author" content="Rumah Siffon" />
+    <meta name="title" content="Rumah Siffon | Kontak" />
+    <meta name="description"
+        content="Rumah Siffon — Cake & Bakery. Hubungi kami untuk informasi produk dan pemesanan." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Rumah Siffon | Kontak" />
+    <meta property="og:description"
+        content="Hubungi Rumah Siffon untuk informasi produk dan pemesanan cake, bakery, proll tape, dan aneka kue." />
+    <meta property="og:image" content="assets/images/rumah-siffon/logo-rumah-siffon.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Rumah Siffon - Cake & Bakery" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Rumah Siffon" />
+
+    <!-- Fonts & CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme-c9540983.css">
+    <link rel="stylesheet" href="assets/css/tailwind-output.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --siffon-primary: #3F6B4F;
+            --siffon-primary-dark: #2F523C;
+            --siffon-accent: #C7A45A;
+            --siffon-accent-light: #E4D2A3;
+            --siffon-warm: #7A6652;
+            --siffon-warm-dark: #4A3A2A;
+            --siffon-cream: #FAF6EC;
+            --siffon-brown: #3F3B35;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--siffon-cream);
+            color: var(--siffon-brown);
+        }
+
+        .hero-page {
+            background: linear-gradient(135deg, #f1eadc 0%, #faf6ec 50%, #e5ddcd 100%);
+        }
+
+        .contact-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(63, 59, 53, 0.12);
+        }
+
+        .form-input {
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--siffon-primary) !important;
+            box-shadow: 0 0 0 3px rgba(63, 107, 79, 0.15);
+            outline: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .custom-marker {
+            background: transparent !important;
+            border: none !important;
+        }
+
+        /* Mobile Menu - dipertahankan seperti KWT Sitara */
+        #mobile-menu {
+            transition: transform 0.3s ease;
+        }
+
+        #mobile-menu.open {
+            transform: translateX(0) !important;
+        }
+
+        #mobile-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        #mobile-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Mobile Overlay -->
+    <div id="mobile-overlay" onclick="closeMobileMenu()"></div>
+
+    <!-- HEADER -->
+    <header id="navbar" class="sticky top-0 z-50 border-b"
+        style="position: sticky !important; top: 0 !important; z-index: 9999 !important; background-color: rgb(250, 246, 236) !important; border-color: rgba(199,164,90,0.15) !important;">
+        <div class="lg:h-[72px] h-14 flex items-center">
+            <div class="container">
+                <div class="grid lg:grid-cols-3 grid-cols-2 items-center mx-4 lg:mx-7">
+
+                    <div class="flex items-center">
+                        <button class="lg:hidden block mr-3" onclick="openMobileMenu()">
+                            <i data-lucide="menu" class="w-6 h-6" style="color:var(--siffon-warm);"></i>
+                        </button>
+
+                        <a href="index.html" class="flex items-center gap-2">
+                            <img src="assets/images/rumah-siffon/logo-rumah-siffon.png" alt="Rumah Siffon logo"
+                                class="w-9 h-9 rounded-xl object-cover">
+                            <span class="hidden sm:block text-lg font-bold" style="color:var(--siffon-primary);">Rumah
+                                Siffon</span>
+                        </a>
+                    </div>
+
+                    <ul class="hidden lg:flex items-center justify-center gap-1">
+                        <li>
+                            <a class="inline-flex items-center text-sm font-medium py-2 px-4 rounded-full transition-all duration-300"
+                                style="color:var(--siffon-warm-dark);"
+                                onmouseover="this.style.backgroundColor='rgba(199,164,90,0.08)'"
+                                onmouseout="this.style.backgroundColor='transparent'" href="index.html">
+                                Beranda
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="inline-flex items-center text-sm font-medium py-2 px-4 rounded-full transition-all duration-300"
+                                style="color:var(--siffon-warm-dark);"
+                                onmouseover="this.style.backgroundColor='rgba(199,164,90,0.08)'"
+                                onmouseout="this.style.backgroundColor='transparent'" href="produk.html">
+                                Produk
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="inline-flex items-center text-sm font-semibold py-2 px-4 rounded-full"
+                                style="color:var(--siffon-primary);background-color:rgba(63,107,79,0.1);"
+                                href="kontak.html">
+                                Kontak
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="flex justify-end">
+                        <a href="#pesan"
+                            class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-semibold transition-all duration-300"
+                            style="background-color:var(--siffon-primary);box-shadow:0 4px 14px rgba(63,107,79,0.3);">
+                            <i data-lucide="phone" class="w-4 h-4"></i> Hubungi Kami
+                        </a>
+
+                        <!-- Mobile visible button -->
+                        <a href="#pesan"
+                            class="inline-flex lg:hidden items-center gap-2 px-3 py-2 rounded-full text-white text-sm font-semibold transition-all duration-200"
+                            style="background-color:var(--siffon-primary);box-shadow:0 3px 10px rgba(63,107,79,0.25);margin-left:8px;">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 left-0 h-full max-w-[280px] w-full border-r"
+        style="z-index:10000!important;background-color:var(--siffon-cream)!important;border-color:rgba(199,164,90,0.15)!important;transform:translateX(-100%);">
+
+        <div class="flex items-center justify-between px-5 h-16 border-b"
+            style="border-color:rgba(199,164,90,0.15)!important;">
+
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="assets/images/rumah-siffon/logo-rumah-siffon.png" alt="Rumah Siffon logo"
+                    class="w-8 h-8 rounded-lg object-cover">
+                <span class="font-bold" style="color:var(--siffon-primary);">Rumah Siffon</span>
+            </a>
+
+            <button class="p-2 rounded-lg transition" style="color:var(--siffon-warm);" onclick="closeMobileMenu()">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <nav class="p-4">
+            <ul class="space-y-1">
+                <li>
+                    <a class="flex items-center gap-3 py-3 px-4 text-sm rounded-xl transition"
+                        style="color:var(--siffon-warm-dark);"
+                        onmouseover="this.style.backgroundColor='rgba(199,164,90,0.08)'"
+                        onmouseout="this.style.backgroundColor='transparent'" href="index.html">
+                        <i data-lucide="home" class="w-4 h-4"></i> Beranda
+                    </a>
+                </li>
+
+                <li>
+                    <a class="flex items-center gap-3 py-3 px-4 text-sm rounded-xl transition"
+                        style="color:var(--siffon-warm-dark);"
+                        onmouseover="this.style.backgroundColor='rgba(199,164,90,0.08)'"
+                        onmouseout="this.style.backgroundColor='transparent'" href="produk.html">
+                        <i data-lucide="grid-3x3" class="w-4 h-4"></i> Produk
+                    </a>
+                </li>
+
+                <li>
+                    <a class="flex items-center gap-3 py-3 px-4 text-sm font-semibold rounded-xl"
+                        style="background-color:rgba(63,107,79,0.1);color:var(--siffon-primary);" href="kontak.html">
+                        <i data-lucide="phone" class="w-4 h-4"></i> Hubungi Kami
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- HERO PAGE -->
+    <section class="hero-page py-16 text-center">
+        <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="800">
+            <span
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-4"
+                style="background-color:rgba(63,107,79,0.12);color:var(--siffon-primary);">
+                Kami Siap Membantu
+            </span>
+
+            <h1 class="text-3xl lg:text-5xl font-extrabold mb-4" style="color:var(--siffon-brown);">
+                Hubungi Kami
+            </h1>
+
+            <p class="max-w-lg mx-auto" style="color:var(--siffon-warm);">
+                Ada pertanyaan tentang produk Rumah Siffon?
+                Jangan ragu untuk menghubungi kami.
+            </p>
+
+            <div class="mt-4 mx-auto w-16 h-1 rounded-full" style="background-color:var(--siffon-accent);"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="grid lg:grid-cols-5 gap-10">
+
+                <!-- Left: Info Cards -->
+                <div class="lg:col-span-2 space-y-5" data-aos="fade-up" data-aos-duration="800">
+
+                    <!-- WhatsApp -->
+                    <div class="contact-card bg-white rounded-2xl p-6 shadow-md flex items-start gap-4">
+                        <span class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                            style="background-color:rgba(37,211,102,0.1);">
+                            <i class="fa-brands fa-whatsapp text-xl" style="color:#25D366;"></i>
+                        </span>
+
+                        <div>
+                            <h3 class="font-bold text-base mb-1" style="color:var(--siffon-brown);">
+                                WhatsApp
+                            </h3>
+
+                            <p class="text-sm mb-2" style="color:var(--siffon-warm);">
+                                Chat langsung dengan Rumah Siffon
+                            </p>
+
+                            <!-- GANTI NOMOR WHATSAPP -->
+                            <a href="https://wa.me/628xxxxxxxxxx" target="_blank" rel="noopener noreferrer"
+                                class="text-sm font-semibold inline-flex items-center gap-1"
+                                style="color:var(--siffon-primary);">
+                                Hubungi via WhatsApp
+                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Telepon -->
+                    <div class="contact-card bg-white rounded-2xl p-6 shadow-md flex items-start gap-4">
+                        <span class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                            style="background-color:rgba(63,107,79,0.1);">
+                            <i class="fa-solid fa-phone text-xl" style="color:var(--siffon-primary);"></i>
+                        </span>
+
+                        <div>
+                            <h3 class="font-bold text-base mb-1" style="color:var(--siffon-brown);">
+                                Telepon
+                            </h3>
+
+                            <p class="text-sm mb-2" style="color:var(--siffon-warm);">
+                                Hubungi kami untuk informasi produk dan pemesanan
+                            </p>
+
+                            <!-- GANTI NOMOR TELEPON -->
+                            <a href="tel:+628xxxxxxxxxx" class="text-sm font-semibold"
+                                style="color:var(--siffon-primary);">
+                                Nomor Rumah Siffon
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Cabang -->
+                    <div class="contact-card bg-white rounded-2xl p-6 shadow-md flex items-start gap-4">
+                        <span class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                            style="background-color:rgba(199,164,90,0.1);">
+                            <i class="fa-solid fa-shop text-xl" style="color:var(--siffon-accent);"></i>
+                        </span>
+
+                        <div>
+                            <h3 class="font-bold text-base mb-1" style="color:var(--siffon-brown);">
+                                Cabang
+                            </h3>
+
+                            <p class="text-sm leading-relaxed" style="color:var(--siffon-warm);">
+                                Rumah Siffon hadir di dua wilayah:
+                            </p>
+
+                            <div class="mt-2 space-y-1 text-sm" style="color:var(--siffon-warm);">
+                                <div>• Jember</div>
+                                <div>• Banyuwangi</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alamat -->
+                    <div class="contact-card bg-white rounded-2xl p-6 shadow-md flex items-start gap-4">
+                        <span class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                            style="background-color:rgba(122,102,82,0.1);">
+                            <i class="fa-solid fa-location-dot text-xl" style="color:var(--siffon-warm);"></i>
+                        </span>
+
+                        <div>
+                            <h3 class="font-bold text-base mb-1" style="color:var(--siffon-brown);">
+                                Alamat
+                            </h3>
+
+                            <p class="text-sm leading-relaxed" style="color:var(--siffon-warm);">
+                                Jember & Banyuwangi
+                            </p>
+
+                            <p class="text-xs mt-2" style="color:var(--siffon-warm);">
+                                Alamat lengkap dapat ditambahkan setelah
+                                data lokasi resmi tersedia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div id="pesan" class="lg:col-span-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+
+                    <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg">
+
+                        <h2 class="text-2xl font-bold mb-2" style="color:var(--siffon-brown);">
+                            Kirim Pesan
+                        </h2>
+
+                        <p class="text-sm mb-8" style="color:var(--siffon-warm);">
+                            Isi formulir di bawah ini, kemudian pesan akan
+                            diarahkan ke WhatsApp Rumah Siffon.
+                        </p>
+
+                        <form id="contactForm" onsubmit="handleSubmit(event)">
+
+                            <div class="mb-5">
+                                <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
+                                    Nama Lengkap *
+                                </label>
+
+                                <input type="text" id="nameInput" required placeholder="Masukkan nama Anda"
+                                    class="form-input w-full px-4 py-3 rounded-xl border text-sm"
+                                    style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);">
+                            </div>
+
+                            <div class="mb-5">
+                                <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
+                                    Nomor Telepon *
+                                </label>
+
+                                <input type="tel" id="phoneInput" required placeholder="08xx-xxxx-xxxx"
+                                    class="form-input w-full px-4 py-3 rounded-xl border text-sm"
+                                    style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);">
+                            </div>
+
+                            <div class="mb-5">
+                                <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
+                                    Produk *
+                                </label>
+
+                                <select id="productInput" required
+                                    class="form-input w-full px-4 py-3 rounded-xl border text-sm"
+                                    style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);">
+
+                                    <option value="">Pilih produk yang ingin dipesan</option>
+                                    <optgroup label="Cake & Siffon">
+                                        <option value="Siffon Keju, Pandan, Stawberi (Rp 35.000)">Siffon Keju, Pandan, Stawberi - Rp 35.000</option>
+                                        <option value="Siffon Coklat (Rp 40.000)">Siffon Coklat - Rp 40.000</option>
+                                        <option value="Roll Cake (Rp 25.000)">Roll Cake - Rp 25.000</option>
+                                        <option value="Spiku Kenari (Rp 22.000)">Spiku Kenari - Rp 22.000</option>
+                                        <option value="Bolu Pandan (Rp 25.000)">Bolu Pandan - Rp 25.000</option>
+                                    </optgroup>
+                                    <optgroup label="Proll Tape Khas Jember">
+                                        <option value="Prolltape Ori (Rp 35.000)">Prolltape Ori - Rp 35.000</option>
+                                        <option value="Prolltape Mix (Rp 40.000)">Prolltape Mix - Rp 40.000</option>
+                                        <option value="Prolltape Brownis (Rp 45.000)">Prolltape Brownis - Rp 45.000</option>
+                                    </optgroup>
+                                    <optgroup label="Roti & Bakery">
+                                        <option value="Roti Abon (Rp 16.000)">Roti Abon - Rp 16.000</option>
+                                        <option value="Abon Roll (Rp 25.000)">Abon Roll - Rp 25.000</option>
+                                        <option value="Roti Pizza (Rp 11.000)">Roti Pizza - Rp 11.000</option>
+                                        <option value="Roti Zebra (Rp 10.000)">Roti Zebra - Rp 10.000</option>
+                                        <option value="Roti Sosis (Rp 10.000)">Roti Sosis - Rp 10.000</option>
+                                        <option value="Roti Sisir Original (Rp 12.000)">Roti Sisir Original - Rp 12.000</option>
+                                        <option value="Roti Sobek Tanpa Isi (Rp 10.000)">Roti Sobek Tanpa Isi - Rp 10.000</option>
+                                        <option value="Roti Kombinasi Coklat Keju (Rp 17.000)">Roti Kombinasi Coklat Keju - Rp 17.000</option>
+                                        <option value="Pisang Coklat (Rp 10.000)">Pisang Coklat - Rp 10.000</option>
+                                        <option value="Roti Bluebery (Rp 10.000)">Roti Bluebery - Rp 10.000</option>
+                                        <option value="Roti Stawbery (Rp 10.000)">Roti Stawbery - Rp 10.000</option>
+                                        <option value="Long Chesee (Rp 11.000)">Long Chesee - Rp 11.000</option>
+                                        <option value="Golden Chesee (Rp 15.000)">Golden Chesee - Rp 15.000</option>
+                                        <option value="Circle Coklat Medium (Rp 10.000)">Circle Coklat Medium - Rp 10.000</option>
+                                        <option value="Coating Nut (Rp 13.000)">Coating Nut - Rp 13.000</option>
+                                        <option value="Chococrun (Rp 12.000)">Chococrun - Rp 12.000</option>
+                                    </optgroup>
+                                    <optgroup label="Aneka Kue & Cup Cake">
+                                        <option value="Banana Cup Keju (Rp 10.000)">Banana Cup Keju - Rp 10.000</option>
+                                        <option value="Banana Cup Coklat (Rp 10.000)">Banana Cup Coklat - Rp 10.000</option>
+                                    </optgroup>
+                                    <option value="Custom Order / Lainnya">Custom Order / Lainnya</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
+                                    Pesan *
+                                </label>
+
+                                <textarea id="messageInput" required rows="5"
+                                    placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."
+                                    class="form-input w-full px-4 py-3 rounded-xl border text-sm resize-none"
+                                    style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="px-5 py-3 rounded-xl text-white font-semibold text-sm transition-all duration-300 flex items-center gap-2"
+                                style="background-color:var(--siffon-primary);box-shadow:0 4px 14px rgba(63,107,79,0.3);"
+                                onmouseover="this.style.backgroundColor='var(--siffon-primary-dark)'"
+                                onmouseout="this.style.backgroundColor='var(--siffon-primary)'">
+
+                                <i class="fa-brands fa-whatsapp text-base"></i>
+                                Kirim
+
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL WIDTH MAP -->
+    <section class="py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-10">
+
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="p-6 pb-0 text-center" data-aos="fade-up">
+
+                    <h3 class="text-xl font-bold mb-1" style="color:var(--siffon-brown);">
+                        Lokasi Kami
+                    </h3>
+
+                    <p class="text-sm" style="color:var(--siffon-warm);">
+                        Lokasi dapat diperbarui menggunakan alamat resmi
+                        Rumah Siffon.
+                    </p>
+
+                </div>
+
+                <div id="map" class="w-full" style="height:420px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-white mt-8" style="background:var(--siffon-green-dark);">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-10 py-9">
+
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-5">
+
+                <div class="flex items-center gap-3">
+                    <img src="assets/images/rumah-siffon/logo-rumah-siffon.png" alt="Logo Rumah Siffon"
+                        class="w-9 h-9 rounded-lg object-contain bg-white/90">
+                    <div>
+                        <p class="font-semibold">Rumah Siffon</p>
+                        <p class="text-xs text-white/60">Cake & Bakery</p>
+                    </div>
+                </div>
+
+                <p class="text-white/60 text-xs text-center">
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    Rumah Siffon. Made with 💖 by <a href="https://github.com/surobyy" target="_blank"
+                        rel="noopener noreferrer" class="underline hover:text-white transition">surobyy</a>.
+                </p>
+
+                <div class="flex items-center gap-3">
+                    <a href="https://www.instagram.com/rumahsiffon" target="_blank" rel="noopener noreferrer"
+                        class="w-9 h-9 rounded-full flex items-center justify-center transition"
+                        style="background:rgba(255,255,255,.10);">
+                        <i class="fa-brands fa-instagram text-sm"></i>
+                    </a>
+
+                    <a href="https://www.tiktok.com/@rumahsiffon" target="_blank" rel="noopener noreferrer"
+                        class="w-9 h-9 rounded-full flex items-center justify-center transition"
+                        style="background:rgba(255,255,255,.10);">
+                        <i class="fa-brands fa-tiktok text-sm"></i>
+                    </a>
+
+                    <a href="kontak.html" class="w-9 h-9 rounded-full flex items-center justify-center transition"
+                        style="background:rgba(255,255,255,.10);">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/628xxxxxxxxxx" target="_blank" rel="noopener noreferrer"
+        class="fixed bottom-10 right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300"
+        style="z-index:9998!important;background-color:#25D366;box-shadow:0 4px 20px rgba(37,211,102,0.4);"
+        title="Chat WhatsApp Rumah Siffon">
+
+        <i class="fa-brands fa-whatsapp text-2xl text-white"></i>
+
+        <span class="absolute top-0 right-0 w-4 h-4 bg-red-500 rounded-full border-2 border-white animate-ping"></span>
+        <span class="absolute top-0 right-0 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="assets/fontawesome/js/all.min.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 700,
+            once: true,
+            easing: 'ease-out-cubic',
+            offset: 50
+        });
+
+        lucide.createIcons();
+    </script>
+
+    <script>
+        // Mobile Menu
+        function openMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('open');
+            document.getElementById('mobile-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.remove('open');
+            document.getElementById('mobile-overlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Close menu after clicking link
+        document.querySelectorAll('#mobile-menu a').forEach(function (link) {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    </script>
+
+    <script>
+        /*
+         * PETA
+         *
+         * Koordinat resmi Rumah Siffon belum diberikan.
+         * Untuk sementara peta diarahkan ke area Jember.
+         *
+         * Setelah koordinat/alamat resmi tersedia,
+         * ganti latitude dan longitude di bawah.
+         */
+
+        var rumahSiffonLat = -8.1720;
+        var rumahSiffonLng = 113.7000;
+
+        var map = L.map('map', {
+            scrollWheelZoom: false
+        }).setView([rumahSiffonLat, rumahSiffonLng], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        var siffonIcon = L.divIcon({
+            className: 'custom-marker',
+            html: '<div style="width:30px;height:30px;background:#3F6B4F;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(63,107,79,0.4);border:3px solid white;"><span style="color:white;font-size:13px;">🍰</span></div>',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15],
+            popupAnchor: [0, -18]
+        });
+
+        L.marker([rumahSiffonLat, rumahSiffonLng], {
+            icon: siffonIcon
+        }).addTo(map)
+            .bindPopup(
+                '<div style="text-align:center;font-family:Poppins,sans-serif;">' +
+                '<strong style="color:#3F6B4F;font-size:14px;">Rumah Siffon</strong><br>' +
+                '<span style="font-size:12px;color:#7A6652;">Cake & Bakery</span>' +
+                '</div>',
+                {
+                    maxWidth: 250
+                }
+            )
+            .openPopup();
+    </script>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('nameInput').value.trim();
+            const phone = document.getElementById('phoneInput').value.trim();
+            const product = document.getElementById('productInput').value.trim();
+            const message = document.getElementById('messageInput').value.trim();
+
+            if (!name || !phone || !product || !message) {
+                alert('Mohon lengkapi semua field!');
+                return;
+            }
+
+            /*
+             * GANTI nomor berikut dengan nomor WhatsApp
+             * resmi Rumah Siffon.
+             *
+             * Contoh:
+             * const waNumber = '6281234567890';
+             */
+
+            const waNumber = '628xxxxxxxxxx';
+
+            if (waNumber === '628xxxxxxxxxx') {
+                alert(
+                    'Nomor WhatsApp Rumah Siffon belum diatur. ' +
+                    'Silakan ganti nomor WhatsApp pada kode HTML.'
+                );
+                return;
+            }
+
+            const text =
+                `Halo Rumah Siffon,%0A%0A` +
+                `Nama: ${encodeURIComponent(name)}%0A` +
+                `Telepon: ${encodeURIComponent(phone)}%0A` +
+                `Produk: ${encodeURIComponent(product)}%0A` +
+                `Pesan: ${encodeURIComponent(message)}`;
+
+            const waUrl = `https://wa.me/${waNumber}?text=${text}`;
+
+            window.open(waUrl, '_blank');
+
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalHTML = btn.innerHTML;
+
+            btn.innerHTML =
+                '<i class="fa-solid fa-check"></i> Membuka WhatsApp...';
+
+            btn.style.backgroundColor = '#25D366';
+
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.backgroundColor = '';
+                e.target.reset();
+                lucide.createIcons();
+            }, 3000);
+        }
+
+        // Auto-select product from URL parameter
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const requestedProduct = params.get('produk');
+                if (requestedProduct) {
+                    const selectEl = document.getElementById('productInput');
+                    if (selectEl) {
+                        const decoded = decodeURIComponent(requestedProduct).toLowerCase().trim();
+                        let matched = false;
+                        for (let i = 0; i < selectEl.options.length; i++) {
+                            const optText = selectEl.options[i].text.toLowerCase();
+                            const optVal = selectEl.options[i].value.toLowerCase();
+                            if (optText.includes(decoded) || optVal.includes(decoded)) {
+                                selectEl.selectedIndex = i;
+                                matched = true;
+                                break;
+                            }
+                        }
+                        if (!matched) {
+                            selectEl.value = 'Custom Order / Lainnya';
+                            const msgInput = document.getElementById('messageInput');
+                            if (msgInput) msgInput.value = 'Halo, saya ingin memesan produk: ' + decodeURIComponent(requestedProduct);
+                        }
+                        const formCard = document.getElementById('contactForm');
+                        if (formCard) {
+                            formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }
+                }
+            } catch (err) {
+                console.warn('URL param parse error:', err);
+            }
+        });
+    </script>
+
+    <!-- Vercel Analytics -->
+    <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
+
+</body>
+
+</html>

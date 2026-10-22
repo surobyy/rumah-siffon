@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <title>Rumah Siffon | Cake & Bakery</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+
+    <link rel="shortcut icon" href="assets/images/rumah-siffon/logo-rumah-siffon.png" type="image/png" />
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Rumah Siffon | Cake & Bakery">
+    <meta name="keywords"
+        content="Rumah Siffon, bakery Jember, cake Jember, kue Jember, bakery Banyuwangi, proll tape, cake, roti, kue">
+    <meta name="author" content="Rumah Siffon">
+    <meta name="description"
+        content="Rumah Siffon menghadirkan berbagai pilihan cake, bakery, dan kue untuk menemani berbagai momen spesial. Temukan produk favorit dan pesan dengan mudah melalui WhatsApp.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- Ganti setelah domain Rumah Siffon sudah ditentukan -->
+    <link rel="canonical" href="https://rumahsiffon.vercel.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rumahsiffon.vercel.app/">
+    <meta property="og:author" content="Rumah Siffon">
+    <meta property="og:title" content="Rumah Siffon | Cake & Bakery">
+    <meta property="og:description"
+        content="Berbagai pilihan cake, bakery, dan kue dari Rumah Siffon untuk setiap momen spesial.">
+    <meta property="og:image" content="https://rumahsiffon.vercel.app/assets/images/rumah-siffon/og-image.webp">
+    <meta property="og:image:alt" content="Rumah Siffon Cake & Bakery">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:site_name" content="Rumah Siffon">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://rumahsiffon.vercel.app/">
+    <meta name="twitter:title" content="Rumah Siffon | Cake & Bakery">
+    <meta name="twitter:description" content="Berbagai pilihan cake, bakery, dan kue dari Rumah Siffon.">
+    <meta name="twitter:image" content="https://rumahsiffon.vercel.app/assets/images/rumah-siffon/og-image.webp">
+
+    <!-- LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Bakery",
+        "name": "Rumah Siffon",
+        "description": "Cake, bakery, dan berbagai pilihan kue untuk berbagai momen spesial.",
+        "url": "https://rumahsiffon.vercel.app/",
+        "logo": "https://rumahsiffon.vercel.app/assets/images/rumah-siffon/logo-rumah-siffon.png",
+        "image": "https://rumahsiffon.vercel.app/assets/images/rumah-siffon/og-image.webp",
+        "priceRange": "Rp",
+        "areaServed": [
+            {"@type": "City", "name": "Jember"},
+            {"@type": "City", "name": "Banyuwangi"}
+        ],
+        "sameAs": [
+            "https://www.instagram.com/rumahsiffon"
+        ]
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+
+    <!-- Swiper -->
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Existing project CSS -->
+    <link rel="stylesheet" href="assets/css/theme-c9540983.css">
+    <link rel="stylesheet" href="assets/css/tailwind-output.css">
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            /* PALET WARNA RUMAH SIFFON
+               Hijau brand + cream + aksen gold/beige */
+            --siffon-green: #3F6B4F;
+            --siffon-green-dark: #2F523C;
+            --siffon-green-soft: #EAF1E8;
+            --siffon-cream: #FAF6EC;
+            --siffon-cream-dark: #F1E9D8;
+            --siffon-gold: #C7A45A;
+            --siffon-brown: #4A3A2A;
+            --siffon-text: #4D4D45;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--siffon-cream);
+            color: var(--siffon-text);
+        }
+
+        .hero-bg {
+            background:
+                radial-gradient(circle at 85% 20%, rgba(199, 164, 90, .13), transparent 28%),
+                linear-gradient(135deg, #FAF6EC 0%, #F7F0E2 48%, #EAF1E8 100%);
+        }
+
+        .section-alt {
+            background: linear-gradient(180deg, #F4EDDF 0%, #FAF6EC 100%);
+        }
+
+        .green-gradient {
+            background: linear-gradient(135deg, var(--siffon-green), var(--siffon-green-dark));
+        }
+
+        .card-hover {
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(63, 107, 79, .13);
+        }
+
+        .swiper-slide {
+            height: auto;
+        }
+
+        .mySwiper .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .mySwiper .swiper-button-next,
+        .mySwiper .swiper-button-prev {
+            color: var(--siffon-green);
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border-radius: 999px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .18);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            transition: all .25s ease;
+        }
+
+        .mySwiper .swiper-button-prev {
+            left: 20px;
+        }
+
+        .mySwiper .swiper-button-next {
+            right: 20px;
+        }
+
+        .mySwiper .swiper-button-next:hover,
+        .mySwiper .swiper-button-prev:hover {
+            background: #ffffff;
+            color: var(--siffon-green-dark);
+            transform: scale(1.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+        }
+
+        .mySwiper .swiper-button-next::after,
+        .mySwiper .swiper-button-prev::after {
+            font-size: 15px !important;
+            font-weight: 800;
+        }
+
+        /* Swiper Pagination Bullets */
+        .mySwiper .swiper-pagination {
+            bottom: 14px !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            z-index: 20;
+        }
+
+        @media (min-width: 640px) {
+            .mySwiper .swiper-pagination {
+                bottom: 20px !important;
+            }
+        }
+
+        .mySwiper .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            margin: 0 !important;
+            background: #ffffff;
+            opacity: 0.55;
+            transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 999px;
+            cursor: pointer;
+        }
+
+        .mySwiper .swiper-pagination-bullet-active {
+            width: 26px;
+            background: var(--siffon-gold);
+            opacity: 1;
+            box-shadow: 0 2px 8px rgba(199, 164, 90, .6);
+        }
+
+        /* Sembunyikan panah di HP agar tidak menutupi konten/teks */
+        @media (max-width: 639px) {
+            .mySwiper .swiper-button-next,
+            .mySwiper .swiper-button-prev {
+                display: none !important;
+            }
+        }
+
+        .category-card {
+            min-height: 300px;
+        }
+
+        .ig-card {
+            overflow: hidden;
+            border-radius: 1rem;
+            background: #fff;
+            border: 1px solid rgba(63, 107, 79, .10);
+        }
+
+        #mobile-menu {
+            transition: transform .3s ease;
+        }
+
+        #mobile-menu.open {
+            transform: translateX(0) !important;
+        }
+
+        #mobile-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .45);
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s ease;
+        }
+
+        #mobile-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .gold-line {
+            width: 48px;
+            height: 4px;
+            border-radius: 99px;
+            background: var(--siffon-gold);
+            margin: 16px auto 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Mobile Overlay -->
+    <div id="mobile-overlay" onclick="closeMobileMenu()"></div>
+
+    <!-- HEADER -->
+    <header id="navbar" class="sticky top-0 z-50 border-b"
+        style="background:rgba(250,246,236,.96);border-color:rgba(63,107,79,.10);backdrop-filter:blur(12px);">
+
+        <div class="lg:h-[72px] h-14 flex items-center">
+            <div class="container mx-auto">
+                <div class="grid lg:grid-cols-3 grid-cols-2 items-center mx-4 lg:mx-7">
+
+                    <div class="flex items-center">
+                        <button class="lg:hidden block mr-3" onclick="openMobileMenu()" aria-label="Buka menu">
+                            <i data-lucide="menu" class="w-6 h-6" style="color:var(--siffon-green);"></i>
+                        </button>
+
+                        <a href="index.html" class="flex items-center gap-2">
+                            <img src="assets/images/rumah-siffon/logo-rumah-siffon.png" alt="Logo Rumah Siffon"
+                                class="w-10 h-10 rounded-xl object-contain">
+                            <span class="hidden sm:block text-lg font-bold" style="color:var(--siffon-green);">
+                                Rumah Siffon
+                            </span>
+                        </a>
+                    </div>
+
+                    <ul class="hidden lg:flex items-center justify-center gap-1">
+                        <li>
+                            <a href="index.html"
+                                class="inline-flex items-center text-sm font-semibold py-2 px-4 rounded-full"
+                                style="color:var(--siffon-green);background:rgba(63,107,79,.08);">
+                                Beranda
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="#tentang"
+                                class="inline-flex items-center text-sm font-medium py-2 px-4 rounded-full transition"
+                                style="color:var(--siffon-brown);"
+                                onmouseover="this.style.background='rgba(63,107,79,.08)'"
+                                onmouseout="this.style.background='transparent'">
+                                Tentang
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="produk.html"
+                                class="inline-flex items-center text-sm font-medium py-2 px-4 rounded-full transition"
+                                style="color:var(--siffon-brown);"
+                                onmouseover="this.style.background='rgba(63,107,79,.08)'"
+                                onmouseout="this.style.background='transparent'">
+                                Produk
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="#jfc"
+                                class="inline-flex items-center text-sm font-medium py-2 px-4 rounded-full transition"
+                                style="color:var(--siffon-brown);"
+                                onmouseover="this.style.background='rgba(63,107,79,.08)'"
+                                onmouseout="this.style.background='transparent'">
+                                JFC
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="kontak.html"
+                                class="inline-flex items-center text-sm font-medium py-2 px-4 rounded-full transition"
+                                style="color:var(--siffon-brown);"
+                                onmouseover="this.style.background='rgba(63,107,79,.08)'"
+                                onmouseout="this.style.background='transparent'">
+                                Kontak
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="flex justify-end">
+                        <a href="kontak.html"
+                            class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-semibold shadow-lg transition"
+                            style="background:var(--siffon-green);box-shadow:0 5px 16px rgba(63,107,79,.24);"
+                            onmouseover="this.style.background='var(--siffon-green-dark)'"
+                            onmouseout="this.style.background='var(--siffon-green)'">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            Pesan Sekarang
+                        </a>
+
+                        <a href="kontak.html"
+                            class="inline-flex lg:hidden items-center gap-2 px-3 py-2 rounded-full text-white text-sm font-semibold"
+                            style="background:var(--siffon-green);">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="fixed top-0 left-0 h-full max-w-[280px] w-full border-r"
+        style="z-index:10000;background:var(--siffon-cream);border-color:rgba(63,107,79,.12);transform:translateX(-100%);">
+
+        <div class="flex items-center justify-between px-5 h-16 border-b" style="border-color:rgba(63,107,79,.12);">
+
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="assets/images/rumah-siffon/logo-rumah-siffon.png" alt="Logo Rumah Siffon"
+                    class="w-8 h-8 object-contain">
+                <span class="font-bold" style="color:var(--siffon-green);">Rumah Siffon</span>
+            </a>
+
+            <button class="p-2 rounded-lg" onclick="closeMobileMenu()" aria-label="Tutup menu">
+                <i data-lucide="x" class="w-5 h-5" style="color:var(--siffon-brown);"></i>
+            </button>
+        </div>
+
+        <nav class="p-4">
+            <ul class="space-y-1">
+                <li>
+                    <a class="flex items-center gap-3 py-3 px-4 text-sm font-semibold rounded-xl"
+                        style="background:rgba(63,107,79,.08);color:var(--siffon-green);" href="index.html">
+                        <i data-lucide="home" class="w-4 h-4"></i> Beranda
+                    </a>
+                </li>
+                <!-- <li>
+                    <a class="flex items-center gap-3 py-3 px-4 text-sm rounded-xl" style="color:var(--siffon-brown);"
+                        href="#tentang" onclick="closeMobileMenu()">
+                        <i data-lucide="store" class="w-4 h-4"></i> Tentang
+                    </a>
+                </li> -->
+                <li>
+                    <a class="flex items-center gap-3 py-3 px-4 text-sm rounded-xl" style="color:var(--siffon-brown);"
+                        href="produk.html">
+                        <i data-lucide="cake-slice" class="w-4 h-4"></i> Produk
+                    </a>
+                </li>
+                <!-- <li>
+                    <a class="flex items-center gap-3 py-3 px-4 text-sm rounded-xl" style="color:var(--siffon-brown);"
+                        href="#jfc" onclick="closeMobileMenu()">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i> JFC
+                    </a>
+                </li> -->
+                <li>
+                    <a class="flex items-center gap-3 py-3 px-4 text-sm rounded-xl" style="color:var(--siffon-brown);"
+                        href="kontak.html">
+                        <i data-lucide="phone" class="w-4 h-4"></i> Kontak
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- HERO -->
+    <section class="relative pt-10 pb-20 overflow-hidden hero-bg">
+        <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-10">
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-10 lg:gap-16 items-center">
+
+                <div class="order-2 lg:order-1 text-center lg:text-left" data-aos="fade-up" data-aos-duration="900">
+
+                    <span
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-5"
+                        style="background:rgba(63,107,79,.09);color:var(--siffon-green);">
+                        <i data-lucide="heart" class="w-3.5 h-3.5"></i>
+                        Dibuat dengan sepenuh hati
+                    </span>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-extrabold leading-[1.15] mb-6">
+                        <span style="color:var(--siffon-green);">Rumah Siffon</span><br>
+                        <span style="color:var(--siffon-brown);">Manisnya Momen,</span><br>
+                        <span style="color:var(--siffon-gold);">Istimewa di Setiap Gigitan.</span>
+                    </h1>
+
+                    <p class="text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8"
+                        style="color:#6B6257;">
+                        Temukan berbagai pilihan cake, bakery, dan kue dari Rumah Siffon
+                        yang cocok untuk menemani hari biasa maupun momen spesial bersama orang tersayang.
+                    </p>
+
+                    <div class="flex items-center gap-2 sm:gap-4 justify-center lg:justify-start flex-wrap">
+                        <a href="produk.html"
+                            class="inline-flex items-center gap-2 px-5 py-3 sm:px-7 sm:py-3.5 rounded-full text-white font-semibold shadow-lg transition"
+                            style="background:var(--siffon-green);"
+                            onmouseover="this.style.background='var(--siffon-green-dark)'"
+                            onmouseout="this.style.background='var(--siffon-green)'">
+                            Lihat Produk
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+
+                        <a href="kontak.html"
+                            class="inline-flex items-center gap-2 px-5 py-3 sm:px-7 sm:py-3.5 rounded-full border-2 font-semibold transition"
+                            style="border-color:var(--siffon-green);color:var(--siffon-green);"
+                            onmouseover="this.style.background='var(--siffon-green)';this.style.color='#fff'"
+                            onmouseout="this.style.background='transparent';this.style.color='var(--siffon-green)'">
+                            Hubungi Kami
+                        </a>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 flex justify-center" data-aos="fade-up" data-aos-duration="900"
+                    data-aos-delay="150">
+
+                    <div class="relative w-full max-w-md lg:max-w-lg">
+                        <div class="absolute -top-8 -right-8 w-64 h-64 rounded-full blur-3xl -z-10"
+                            style="background:rgba(199,164,90,.20);"></div>
+                        <div class="absolute -bottom-8 -left-8 w-52 h-52 rounded-full blur-3xl -z-10"
+                            style="background:rgba(63,107,79,.18);"></div>
+
+                        <div
+                            class="relative aspect-square overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white/80">
+                            <img src="assets/images/rumah-siffon/hero.png" alt="Produk Rumah Siffon" width="1024"
+                                height="1024" class="w-full h-full object-cover" loading="eager">
+                        </div>
+
+                        <div
+                            class="absolute -bottom-4 -left-3 lg:-left-5 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-full flex items-center justify-center"
+                                style="background:var(--siffon-green-soft);">
+                                <i data-lucide="cake-slice" class="w-5 h-5" style="color:var(--siffon-green);"></i>
+                            </span>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-wider" style="color:#8A8175;">Pilihan</p>
+                                <p class="text-sm font-bold" style="color:var(--siffon-brown);">Cake & Bakery</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO SLIDER -->
+    <section class="relative my-6 lg:my-10" data-aos="fade-up" data-aos-duration="800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-black/5">
+                <div class="swiper mySwiper w-full">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="relative w-full h-[280px] xs:h-[320px] sm:h-[380px] md:h-[420px] lg:h-[460px] overflow-hidden">
+                                <img src="assets/images/rumah-siffon/slider-01.png" alt="Produk unggulan Rumah Siffon"
+                                    class="w-full h-full object-cover object-center select-none" loading="lazy">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10 sm:bg-gradient-to-r sm:from-black/80 sm:via-black/45 sm:to-transparent">
+                                </div>
+                                <div class="absolute inset-0 flex flex-col justify-end p-5 pb-10 sm:p-8 sm:pb-12 md:p-12 md:pb-14 lg:p-16 lg:pb-16 text-white z-10">
+                                    <div class="max-w-xl">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-2 sm:mb-3 backdrop-blur-md"
+                                            style="background:rgba(231,209,154,.2);color:#F6E8C3;border:1px solid rgba(231,209,154,.35);">
+                                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                                            Rumah Siffon
+                                        </span>
+                                        <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight mb-1.5 sm:mb-2.5 drop-shadow">
+                                            Pilihan Kue untuk Setiap Momen
+                                        </h3>
+                                        <p class="text-xs sm:text-sm md:text-base text-white/90 line-clamp-2 sm:line-clamp-none max-w-lg mb-3 sm:mb-5 leading-relaxed font-normal">
+                                            Dibuat dari bahan premium dengan kelembutan yang memikat di setiap gigitan untuk hari istimewa Anda.
+                                        </p>
+                                        <div class="flex items-center gap-2 sm:gap-3">
+                                            <a href="produk.html"
+                                                class="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-md transition duration-200"
+                                                style="background:var(--siffon-green);color:#ffffff;"
+                                                onmouseover="this.style.background='var(--siffon-green-dark)'"
+                                                onmouseout="this.style.background='var(--siffon-green)'">
+                                                Lihat Menu
+                                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                            </a>
+                                            <a href="kontak.html"
+                                                class="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition duration-200 backdrop-blur-md"
+                                                style="background:rgba(255,255,255,.15);color:#ffffff;border:1px solid rgba(255,255,255,.3);"
+                                                onmouseover="this.style.background='rgba(255,255,255,.28)'"
+                                                onmouseout="this.style.background='rgba(255,255,255,.15)'">
+                                                Pesan via WA
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="relative w-full h-[280px] xs:h-[320px] sm:h-[380px] md:h-[420px] lg:h-[460px] overflow-hidden">
+                                <img src="assets/images/rumah-siffon/slider-02.png" alt="Cake Rumah Siffon"
+                                    class="w-full h-full object-cover object-center select-none" loading="lazy">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10 sm:bg-gradient-to-r sm:from-black/80 sm:via-black/45 sm:to-transparent">
+                                </div>
+                                <div class="absolute inset-0 flex flex-col justify-end p-5 pb-10 sm:p-8 sm:pb-12 md:p-12 md:pb-14 lg:p-16 lg:pb-16 text-white z-10">
+                                    <div class="max-w-xl">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-2 sm:mb-3 backdrop-blur-md"
+                                            style="background:rgba(231,209,154,.2);color:#F6E8C3;border:1px solid rgba(231,209,154,.35);">
+                                            <i data-lucide="cake-slice" class="w-3.5 h-3.5"></i>
+                                            Cake & Bakery
+                                        </span>
+                                        <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight mb-1.5 sm:mb-2.5 drop-shadow">
+                                            Dibuat untuk Dinikmati Bersama
+                                        </h3>
+                                        <p class="text-xs sm:text-sm md:text-base text-white/90 line-clamp-2 sm:line-clamp-none max-w-lg mb-3 sm:mb-5 leading-relaxed font-normal">
+                                            Sempurna untuk hantaran, perayaan ulang tahun, hingga teman minum teh santai bersama keluarga tercinta.
+                                        </p>
+                                        <div class="flex items-center gap-2 sm:gap-3">
+                                            <a href="produk.html"
+                                                class="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-md transition duration-200"
+                                                style="background:var(--siffon-green);color:#ffffff;"
+                                                onmouseover="this.style.background='var(--siffon-green-dark)'"
+                                                onmouseout="this.style.background='var(--siffon-green)'">
+                                                Lihat Menu
+                                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                            </a>
+                                            <a href="kontak.html"
+                                                class="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition duration-200 backdrop-blur-md"
+                                                style="background:rgba(255,255,255,.15);color:#ffffff;border:1px solid rgba(255,255,255,.3);"
+                                                onmouseover="this.style.background='rgba(255,255,255,.28)'"
+                                                onmouseout="this.style.background='rgba(255,255,255,.15)'">
+                                                Pesan Sekarang
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="relative w-full h-[280px] xs:h-[320px] sm:h-[380px] md:h-[420px] lg:h-[460px] overflow-hidden">
+                                <img src="assets/images/rumah-siffon/slider-03.png" alt="Rumah Siffon di JFC"
+                                    class="w-full h-full object-cover object-center select-none" loading="lazy">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10 sm:bg-gradient-to-r sm:from-black/80 sm:via-black/45 sm:to-transparent">
+                                </div>
+                                <div class="absolute inset-0 flex flex-col justify-end p-5 pb-10 sm:p-8 sm:pb-12 md:p-12 md:pb-14 lg:p-16 lg:pb-16 text-white z-10">
+                                    <div class="max-w-xl">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-2 sm:mb-3 backdrop-blur-md"
+                                            style="background:rgba(231,209,154,.2);color:#F6E8C3;border:1px solid rgba(231,209,154,.35);">
+                                            <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                                            Kelezatan Khas Jember
+                                        </span>
+                                        <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight mb-1.5 sm:mb-2.5 drop-shadow">
+                                            Cita Rasa Istimewa & Selalu Segar
+                                        </h3>
+                                        <p class="text-xs sm:text-sm md:text-base text-white/90 line-clamp-2 sm:line-clamp-none max-w-lg mb-3 sm:mb-5 leading-relaxed font-normal">
+                                            Dari chiffon lembut hingga olahan Proll Tape khas yang harum dan legit, hadir untuk pelanggan Jember & Banyuwangi.
+                                        </p>
+                                        <div class="flex items-center gap-2 sm:gap-3">
+                                            <a href="produk.html"
+                                                class="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-md transition duration-200"
+                                                style="background:var(--siffon-green);color:#ffffff;"
+                                                onmouseover="this.style.background='var(--siffon-green-dark)'"
+                                                onmouseout="this.style.background='var(--siffon-green)'">
+                                                Jelajahi Produk
+                                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                            </a>
+                                            <a href="kontak.html"
+                                                class="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition duration-200 backdrop-blur-md"
+                                                style="background:rgba(255,255,255,.15);color:#ffffff;border:1px solid rgba(255,255,255,.3);"
+                                                onmouseover="this.style.background='rgba(255,255,255,.28)'"
+                                                onmouseout="this.style.background='rgba(255,255,255,.15)'">
+                                                Tanya Stok
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Swiper Pagination (Dots) -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- Swiper Navigation Arrows (Desktop/Tablet) -->
+                    <div class="swiper-button-prev" aria-label="Slide sebelumnya"></div>
+                    <div class="swiper-button-next" aria-label="Slide berikutnya"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section id="tentang" class="py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+                <div data-aos="fade-right">
+                    <span
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase"
+                        style="background:rgba(63,107,79,.09);color:var(--siffon-green);">
+                        Tentang Kami
+                    </span>
+
+                    <h2 class="text-3xl lg:text-4xl font-extrabold mt-4 mb-5" style="color:var(--siffon-brown);">
+                        Selamat Datang di<br>
+                        <span style="color:var(--siffon-green);">Rumah Siffon</span>
+                    </h2>
+
+                    <p class="leading-relaxed mb-4" style="color:#6B6257;">
+                        Rumah Siffon hadir untuk menghadirkan berbagai pilihan cake, bakery,
+                        dan kue yang dapat menemani berbagai suasana — mulai dari camilan,
+                        hadiah, hingga perayaan bersama keluarga dan orang terdekat.
+                    </p>
+
+                    <p class="leading-relaxed" style="color:#6B6257;">
+                        Kami terus berusaha memberikan produk dengan tampilan menarik,
+                        rasa yang nikmat, dan pelayanan yang nyaman bagi pelanggan.
+                    </p>
+
+                    <a href="produk.html" class="inline-flex items-center gap-2 mt-6 font-semibold"
+                        style="color:var(--siffon-green);">
+                        Jelajahi produk kami
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div data-aos="fade-left">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="assets/images/rumah-siffon/about-01.png" alt="Produk Rumah Siffon"
+                            class="w-full h-64 object-cover rounded-2xl shadow-lg">
+                        <img src="assets/images/rumah-siffon/about-02.png" alt="Cake Rumah Siffon"
+                            class="w-full h-64 object-cover rounded-2xl shadow-lg mt-8">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KATEGORI -->
+    <section id="kategori" class="py-16 section-alt">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-10">
+
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase"
+                    style="background:rgba(63,107,79,.09);color:var(--siffon-green);">
+                    Koleksi Kami
+                </span>
+
+                <h2 class="text-3xl lg:text-4xl font-extrabold mt-4 mb-3" style="color:var(--siffon-brown);">
+                    Temukan Favoritmu
+                </h2>
+
+                <p class="max-w-lg mx-auto" style="color:#7A7063;">
+                    Beragam pilihan produk Rumah Siffon untuk menemani setiap momen.
+                </p>
+
+                <div class="gold-line"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md" data-aos="fade-up">
+                    <img src="assets/images/rumah-siffon/category-cake.webp" alt="Cake Rumah Siffon"
+                        class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold mb-1" style="color:var(--siffon-brown);">Cake</h3>
+                        <p class="text-sm mb-4" style="color:#81776A;">Pilihan cake untuk berbagai perayaan.</p>
+                        <a href="produk.html#cake" class="inline-flex items-center gap-2 text-sm font-semibold"
+                            style="color:var(--siffon-green);">
+                            Lihat produk <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <img src="assets/images/rumah-siffon/category-bakery.webp" alt="Bakery Rumah Siffon"
+                        class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold mb-1" style="color:var(--siffon-brown);">Bakery</h3>
+                        <p class="text-sm mb-4" style="color:#81776A;">Beragam roti dan bakery pilihan.</p>
+                        <a href="produk.html#bakery" class="inline-flex items-center gap-2 text-sm font-semibold"
+                            style="color:var(--siffon-green);">
+                            Lihat produk <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <img src="assets/images/rumah-siffon/category-proll-tape.webp" alt="Proll Tape Rumah Siffon"
+                        class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold mb-1" style="color:var(--siffon-brown);">Proll Tape</h3>
+                        <p class="text-sm mb-4" style="color:#81776A;">Salah satu pilihan favorit Rumah Siffon.</p>
+                        <a href="produk.html#proll-tape" class="inline-flex items-center gap-2 text-sm font-semibold"
+                            style="color:var(--siffon-green);">
+                            Lihat produk <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <img src="assets/images/rumah-siffon/category-cookies.webp" alt="Cookies Rumah Siffon"
+                        class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold mb-1" style="color:var(--siffon-brown);">Cookies & Kue</h3>
+                        <p class="text-sm mb-4" style="color:#81776A;">Pilihan kue untuk camilan dan hadiah.</p>
+                        <a href="produk.html#cookies" class="inline-flex items-center gap-2 text-sm font-semibold"
+                            style="color:var(--siffon-green);">
+                            Lihat produk <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-9">
+                <a href="produk.html"
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold shadow-md"
+                    style="background:var(--siffon-green);">
+                    Lihat Semua Produk
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEUNGGULAN -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-10">
+
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase"
+                    style="background:rgba(63,107,79,.09);color:var(--siffon-green);">
+                    Kenapa Rumah Siffon?
+                </span>
+
+                <h2 class="text-3xl lg:text-4xl font-extrabold mt-4 mb-3" style="color:var(--siffon-brown);">
+                    Dibuat untuk Momen Berarti
+                </h2>
+
+                <div class="gold-line"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+                <div class="text-center p-6 rounded-2xl bg-white border border-black/5 shadow-sm" data-aos="fade-up">
+                    <div class="w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-4"
+                        style="background:var(--siffon-green-soft);">
+                        <i data-lucide="heart" class="w-6 h-6" style="color:var(--siffon-green);"></i>
+                    </div>
+                    <h3 class="font-bold mb-2" style="color:var(--siffon-brown);">Dibuat dengan Hati</h3>
+                    <p class="text-sm leading-relaxed" style="color:#81776A;">
+                        Setiap produk disiapkan dengan perhatian pada rasa dan tampilan.
+                    </p>
+                </div>
+
+                <div class="text-center p-6 rounded-2xl bg-white border border-black/5 shadow-sm" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-4"
+                        style="background:rgba(199,164,90,.13);">
+                        <i data-lucide="sparkles" class="w-6 h-6" style="color:var(--siffon-gold);"></i>
+                    </div>
+                    <h3 class="font-bold mb-2" style="color:var(--siffon-brown);">Pilihan Beragam</h3>
+                    <p class="text-sm leading-relaxed" style="color:#81776A;">
+                        Berbagai jenis cake, bakery, dan kue dalam satu tempat.
+                    </p>
+                </div>
+
+                <div class="text-center p-6 rounded-2xl bg-white border border-black/5 shadow-sm" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-4"
+                        style="background:var(--siffon-green-soft);">
+                        <i data-lucide="map-pin" class="w-6 h-6" style="color:var(--siffon-green);"></i>
+                    </div>
+                    <h3 class="font-bold mb-2" style="color:var(--siffon-brown);">Mudah Ditemukan</h3>
+                    <p class="text-sm leading-relaxed" style="color:#81776A;">
+                        Hadir untuk pelanggan di Jember dan Banyuwangi.
+                    </p>
+                </div>
+
+                <div class="text-center p-6 rounded-2xl bg-white border border-black/5 shadow-sm" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-4"
+                        style="background:rgba(199,164,90,.13);">
+                        <i data-lucide="message-circle" class="w-6 h-6" style="color:var(--siffon-gold);"></i>
+                    </div>
+                    <h3 class="font-bold mb-2" style="color:var(--siffon-brown);">Pesan dengan Mudah</h3>
+                    <p class="text-sm leading-relaxed" style="color:#81776A;">
+                        Hubungi kami melalui WhatsApp untuk informasi dan pemesanan.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- JFC -->
+    <!-- <section id="jfc" class="py-16 section-alt">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+                <div class="order-2 lg:order-1" data-aos="fade-right">
+                    <span
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase"
+                        style="background:rgba(199,164,90,.14);color:#9A7733;">
+                        Special Collaboration
+                    </span>
+
+                    <h2 class="text-3xl lg:text-4xl font-extrabold mt-4 mb-5" style="color:var(--siffon-brown);">
+                        Rumah Siffon ×<br>
+                        <span style="color:var(--siffon-green);">Jember Fashion Carnaval</span>
+                    </h2>
+
+                    <p class="leading-relaxed mb-5" style="color:#6B6257;">
+                        Rumah Siffon turut menjadi bagian dari kemeriahan Jember Fashion Carnaval.
+                        Kolaborasi ini menjadi kesempatan untuk memperkenalkan produk lokal
+                        sekaligus ikut merayakan salah satu event kebanggaan Jember.
+                    </p>
+
+                    <a href="#kontak"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-semibold"
+                        style="background:var(--siffon-green);">
+                        Kenali Lebih Dekat
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="order-1 lg:order-2" data-aos="fade-left">
+                    <div class="relative">
+                        <img src="assets/images/rumah-siffon/jfc.webp" alt="Rumah Siffon dan Jember Fashion Carnaval"
+                            class="w-full h-[360px] lg:h-[440px] object-cover rounded-3xl shadow-xl">
+                        <div class="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-5 py-4">
+                            <p class="text-xs uppercase tracking-wider font-semibold" style="color:var(--siffon-gold);">
+                                Jember
+                            </p>
+                            <p class="font-bold" style="color:var(--siffon-brown);">
+                                Rumah Siffon × JFC
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section> -->
+
+    <!-- INSTAGRAM -->
+    <section id="kontak" class="py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-10">
+
+            <div class="text-center mb-10" data-aos="fade-up">
+                <span
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase"
+                    style="background:rgba(63,107,79,.09);color:var(--siffon-green);">
+                    Social Media
+                </span>
+
+                <h2 class="text-3xl lg:text-4xl font-extrabold mt-4 mb-3" style="color:var(--siffon-brown);">
+                    Ikuti Rumah Siffon
+                </h2>
+
+                <p class="max-w-xl mx-auto" style="color:#7A7063;">
+                    Lihat produk terbaru, promo, dan kegiatan Rumah Siffon melalui media sosial kami.
+                </p>
+
+                <div class="gold-line"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-5xl mx-auto">
+
+                <a href="https://www.instagram.com/rumahsiffon" target="_blank" rel="noopener noreferrer"
+                    class="ig-card card-hover p-5 flex items-center gap-4">
+                    <span class="w-12 h-12 rounded-full flex items-center justify-center"
+                        style="background:var(--siffon-green-soft);">
+                        <i class="fa-brands fa-instagram text-xl" style="color:var(--siffon-green);"></i>
+                    </span>
+                    <div>
+                        <p class="text-xs" style="color:#8A8175;">Instagram</p>
+                        <p class="font-bold" style="color:var(--siffon-brown);">@rumahsiffon</p>
+                    </div>
+                </a>
+
+                <a href="https://www.tiktok.com/@rumahsiffon" target="_blank" rel="noopener noreferrer"
+                    class="ig-card card-hover p-5 flex items-center gap-4">
+                    <span class="w-12 h-12 rounded-full flex items-center justify-center"
+                        style="background:var(--siffon-green-soft);">
+                        <i class="fa-brands fa-tiktok text-xl" style="color:var(--siffon-green);"></i>
+                    </span>
+                    <div>
+                        <p class="text-xs" style="color:#8A8175;">TikTok</p>
+                        <p class="font-bold" style="color:var(--siffon-brown);">@rumahsiffon</p>
+                    </div>
+                </a>
+
+                <a href="kontak.html" class="ig-card card-hover p-5 flex items-center gap-4">
+                    <span class="w-12 h-12 rounded-full flex items-center justify-center"
+                        style="background:rgba(199,164,90,.13);">
+                        <i data-lucide="map-pin" class="w-5 h-5" style="color:var(--siffon-gold);"></i>
+                    </span>
+                    <div>
+                        <p class="text-xs" style="color:#8A8175;">Store</p>
+                        <p class="font-bold" style="color:var(--siffon-brown);">Jember & Banyuwangi</p>
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="mt-10 text-center">
+                <p class="mb-4 font-semibold" style="color:var(--siffon-brown);">
+                    Ingin pesan atau bertanya?
+                </p>
+
+                <!-- GANTI NOMOR WA RUMAH SIFFON -->
+                <a href="https://wa.me/NOMOR_WHATSAPP_RUMAH_SIFFON" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold shadow-lg"
+                    style="background:var(--siffon-green);">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    Chat WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-white mt-8" style="background:var(--siffon-green-dark);">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-10 py-9">
+
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-5">
+
+                <div class="flex items-center gap-3">
+                    <img src="assets/images/rumah-siffon/logo-rumah-siffon.png" alt="Logo Rumah Siffon"
+                        class="w-9 h-9 rounded-lg object-contain bg-white/90">
+                    <div>
+                        <p class="font-semibold">Rumah Siffon</p>
+                        <p class="text-xs text-white/60">Cake & Bakery</p>
+                    </div>
+                </div>
+
+                <p class="text-white/60 text-xs text-center">
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    Rumah Siffon. Made with 💖 by <a href="https://github.com/surobyy" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition">surobyy</a>.
+                </p>
+
+                <div class="flex items-center gap-3">
+                    <a href="https://www.instagram.com/rumahsiffon" target="_blank" rel="noopener noreferrer"
+                        class="w-9 h-9 rounded-full flex items-center justify-center transition"
+                        style="background:rgba(255,255,255,.10);">
+                        <i class="fa-brands fa-instagram text-sm"></i>
+                    </a>
+
+                    <a href="https://www.tiktok.com/@rumahsiffon" target="_blank" rel="noopener noreferrer"
+                        class="w-9 h-9 rounded-full flex items-center justify-center transition"
+                        style="background:rgba(255,255,255,.10);">
+                        <i class="fa-brands fa-tiktok text-sm"></i>
+                    </a>
+
+                    <a href="kontak.html" class="w-9 h-9 rounded-full flex items-center justify-center transition"
+                        style="background:rgba(255,255,255,.10);">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <!-- GANTI NOMOR WA RUMAH SIFFON -->
+    <!-- <a href="https://wa.me/NOMOR_WHATSAPP_RUMAH_SIFFON" target="_blank" rel="noopener noreferrer"
+        aria-label="Chat WhatsApp Rumah Siffon"
+        class="fixed bottom-6 right-5 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all"
+        style="z-index:9998;background:#25D366;box-shadow:0 5px 22px rgba(37,211,102,.35);">
+        <i class="fa-brands fa-whatsapp text-2xl text-white"></i>
+    </a> -->
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/fontawesome/js/all.min.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 700,
+            once: true,
+            easing: 'ease-out-cubic',
+            offset: 50
+        });
+
+        function openMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('open');
+            document.getElementById('mobile-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.remove('open');
+            document.getElementById('mobile-overlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        const heroSwiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            loop: true,
+            speed: 650,
+            grabCursor: true,
+            autoplay: {
+                delay: 4500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
+            pagination: {
+                el: ".mySwiper .swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".mySwiper .swiper-button-next",
+                prevEl: ".mySwiper .swiper-button-prev"
+            },
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true
+            }
+        });
+
+        lucide.createIcons();
+    </script>
+
+    <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
+</body>
+
+</html>
