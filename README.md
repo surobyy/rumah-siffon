@@ -1,7 +1,6 @@
-# 🍰 Rumah Siffon - Website Resmi UMKM KWT Tegal Besar
+# 🍰 Rumah Siffon - Website Resmi 
 
-Website profil dan katalog produk resmi untuk **Rumah Siffon**, UMKM kuliner spesialis cake lembut, chiffon, proll tape khas Jember, dan aneka bakery berkualitas di bawah naungan KWT Tegal Besar.
-
+Website profil dan katalog produk resmi untuk **Rumah Siffon**, UMKM kuliner spesialis cake lembut, siffon, proll tape khas Jember, dan aneka bakery berkualitas 
 ---
 
 ## ✨ Fitur Utama
