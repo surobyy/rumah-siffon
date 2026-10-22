@@ -41,7 +41,6 @@
     <link rel="stylesheet" href="assets/css/theme-c9540983.css">
     <link rel="stylesheet" href="assets/css/tailwind-output.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
@@ -350,19 +349,27 @@
                             <i class="fa-solid fa-location-dot text-xl" style="color:var(--siffon-warm);"></i>
                         </span>
 
-                        <div>
+                        <div class="flex-1">
                             <h3 class="font-bold text-base mb-1" style="color:var(--siffon-brown);">
-                                Alamat
+                                Alamat Toko
                             </h3>
 
-                            <p class="text-sm leading-relaxed" style="color:var(--siffon-warm);">
-                                Jember & Banyuwangi
+                            <p class="text-sm font-semibold mb-1" style="color:var(--siffon-primary);">
+                                Rumah Siffon
                             </p>
 
-                            <p class="text-xs mt-2" style="color:var(--siffon-warm);">
-                                Alamat lengkap dapat ditambahkan setelah
-                                data lokasi resmi tersedia.
+                            <p class="text-xs leading-relaxed mb-3" style="color:var(--siffon-warm);">
+                                Jl. Nasional Rte 3, Tembaan, Kepatihan, Kec. Kaliwates, Kabupaten Jember, Jawa Timur 68131
                             </p>
+
+                            <a href="https://maps.app.goo.gl/NJdmhCpYX5zu1BXA7" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white transition shadow-sm"
+                                style="background-color:var(--siffon-primary);"
+                                onmouseover="this.style.backgroundColor='var(--siffon-primary-dark)'"
+                                onmouseout="this.style.backgroundColor='var(--siffon-primary)'">
+                                <i class="fa-solid fa-diamond-turn-right text-xs"></i>
+                                Petunjuk Arah Google Maps
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -480,26 +487,48 @@
         </div>
     </section>
 
-    <!-- FULL WIDTH MAP -->
+    <!-- FULL WIDTH MAP (GOOGLE MAPS) -->
     <section class="py-8">
         <div class="container mx-auto px-4 sm:px-6 lg:px-10">
 
-            <div class="bg-white rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100" data-aos="fade-up" data-aos-delay="200">
 
-                <div class="p-6 pb-0 text-center" data-aos="fade-up">
+                <div class="p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100">
+                    <div>
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase mb-2"
+                            style="background-color:rgba(63,107,79,0.1);color:var(--siffon-primary);">
+                            <i class="fa-solid fa-location-dot"></i> Peta Lokasi Resmi
+                        </span>
+                        <h3 class="text-xl sm:text-2xl font-bold" style="color:var(--siffon-brown);">
+                            Rumah Siffon - Kaliwates, Jember
+                        </h3>
+                        <p class="text-xs sm:text-sm mt-1" style="color:var(--siffon-warm);">
+                            Jl. Nasional Rte 3, Tembaan, Kepatihan, Kec. Kaliwates, Kabupaten Jember, Jawa Timur 68131
+                        </p>
+                    </div>
 
-                    <h3 class="text-xl font-bold mb-1" style="color:var(--siffon-brown);">
-                        Lokasi Kami
-                    </h3>
-
-                    <p class="text-sm" style="color:var(--siffon-warm);">
-                        Lokasi dapat diperbarui menggunakan alamat resmi
-                        Rumah Siffon.
-                    </p>
-
+                    <a href="https://maps.app.goo.gl/NJdmhCpYX5zu1BXA7" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-white text-xs sm:text-sm font-semibold shadow transition whitespace-nowrap"
+                        style="background-color:var(--siffon-primary);"
+                        onmouseover="this.style.backgroundColor='var(--siffon-primary-dark)'"
+                        onmouseout="this.style.backgroundColor='var(--siffon-primary)'">
+                        <i class="fa-solid fa-diamond-turn-right"></i>
+                        Buka di Google Maps
+                    </a>
                 </div>
 
-                <div id="map" class="w-full" style="height:420px;"></div>
+                <!-- Google Maps Embed Iframe -->
+                <div class="w-full relative" style="height:440px;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s-8.1723392,113.7147904!6i17!3m1!1sid!5m1!1sid"
+                        class="w-full h-full border-0" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Peta Lokasi Resmi Rumah Siffon Kaliwates Jember">
+                    </iframe>
+                </div>
+
             </div>
         </div>
     </section>
@@ -563,7 +592,6 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="assets/fontawesome/js/all.min.js"></script>
 
     <script>
@@ -595,51 +623,6 @@
         document.querySelectorAll('#mobile-menu a').forEach(function (link) {
             link.addEventListener('click', closeMobileMenu);
         });
-    </script>
-
-    <script>
-        /*
-         * PETA
-         *
-         * Koordinat resmi Rumah Siffon belum diberikan.
-         * Untuk sementara peta diarahkan ke area Jember.
-         *
-         * Setelah koordinat/alamat resmi tersedia,
-         * ganti latitude dan longitude di bawah.
-         */
-
-        var rumahSiffonLat = -8.1720;
-        var rumahSiffonLng = 113.7000;
-
-        var map = L.map('map', {
-            scrollWheelZoom: false
-        }).setView([rumahSiffonLat, rumahSiffonLng], 13);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-
-        var siffonIcon = L.divIcon({
-            className: 'custom-marker',
-            html: '<div style="width:30px;height:30px;background:#3F6B4F;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(63,107,79,0.4);border:3px solid white;"><span style="color:white;font-size:13px;">🍰</span></div>',
-            iconSize: [30, 30],
-            iconAnchor: [15, 15],
-            popupAnchor: [0, -18]
-        });
-
-        L.marker([rumahSiffonLat, rumahSiffonLng], {
-            icon: siffonIcon
-        }).addTo(map)
-            .bindPopup(
-                '<div style="text-align:center;font-family:Poppins,sans-serif;">' +
-                '<strong style="color:#3F6B4F;font-size:14px;">Rumah Siffon</strong><br>' +
-                '<span style="font-size:12px;color:#7A6652;">Cake & Bakery</span>' +
-                '</div>',
-                {
-                    maxWidth: 250
-                }
-            )
-            .openPopup();
     </script>
 
     <script>
