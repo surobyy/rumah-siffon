@@ -263,9 +263,6 @@
             background: var(--siffon-gold);
             margin: 16px auto 0;
         }
-    
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 
@@ -418,27 +415,26 @@
     </div>
 
     <!-- HERO -->
-    <section class="relative pt-6 sm:pt-10 pb-12 sm:pb-20 overflow-hidden hero-bg">
+    <section class="relative pt-10 pb-20 overflow-hidden hero-bg">
         <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-10">
-            <div class="grid lg:grid-cols-2 grid-cols-1 gap-8 lg:gap-16 items-center">
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-10 lg:gap-16 items-center">
 
-                <!-- Text (First on mobile & desktop) -->
-                <div class="order-1 text-center lg:text-left" data-aos="fade-up" data-aos-duration="900">
+                <div class="order-2 lg:order-1 text-center lg:text-left" data-aos="fade-up" data-aos-duration="900">
 
                     <span
-                        class="inline-flex items-center gap-1.5 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-3 sm:mb-5"
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-5"
                         style="background:rgba(63,107,79,.09);color:var(--siffon-green);">
                         <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                         Dibuat dengan sepenuh hati
                     </span>
 
-                    <h1 class="text-2xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-extrabold leading-[1.2] mb-3 sm:mb-6">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-extrabold leading-[1.15] mb-6">
                         <span style="color:var(--siffon-green);">Rumah Siffon</span><br>
                         <span style="color:var(--siffon-brown);">Manisnya Momen,</span><br>
                         <span style="color:var(--siffon-gold);">Istimewa di Setiap Gigitan.</span>
                     </h1>
 
-                    <p class="text-xs sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-5 sm:mb-8"
+                    <p class="text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8"
                         style="color:#6B6257;">
                         Temukan berbagai pilihan cake, bakery, dan kue dari Rumah Siffon
                         yang cocok untuk menemani hari biasa maupun momen spesial bersama orang tersayang.
@@ -446,7 +442,7 @@
 
                     <div class="flex items-center gap-2 sm:gap-4 justify-center lg:justify-start flex-wrap">
                         <a href="produk.html"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full text-white text-xs sm:text-base font-semibold shadow-lg transition"
+                            class="inline-flex items-center gap-2 px-5 py-3 sm:px-7 sm:py-3.5 rounded-full text-white font-semibold shadow-lg transition"
                             style="background:var(--siffon-green);"
                             onmouseover="this.style.background='var(--siffon-green-dark)'"
                             onmouseout="this.style.background='var(--siffon-green)'">
@@ -455,7 +451,7 @@
                         </a>
 
                         <a href="kontak.html"
-                            class="inline-flex items-center gap-2 px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full border-2 text-xs sm:text-base font-semibold transition"
+                            class="inline-flex items-center gap-2 px-5 py-3 sm:px-7 sm:py-3.5 rounded-full border-2 font-semibold transition"
                             style="border-color:var(--siffon-green);color:var(--siffon-green);"
                             onmouseover="this.style.background='var(--siffon-green)';this.style.color='#fff'"
                             onmouseout="this.style.background='transparent';this.style.color='var(--siffon-green)'">
@@ -464,31 +460,30 @@
                     </div>
                 </div>
 
-                <!-- Hero Image (Second on mobile, Right on desktop) -->
-                <div class="order-2 flex justify-center" data-aos="fade-up" data-aos-duration="900"
+                <div class="order-1 lg:order-2 flex justify-center" data-aos="fade-up" data-aos-duration="900"
                     data-aos-delay="150">
 
-                    <div class="relative w-full max-w-[280px] xs:max-w-xs sm:max-w-md lg:max-w-lg mx-auto">
-                        <div class="absolute -top-4 -right-4 sm:-top-8 sm:-right-8 w-48 sm:w-64 h-48 sm:h-64 rounded-full blur-3xl -z-10"
+                    <div class="relative w-full max-w-md lg:max-w-lg">
+                        <div class="absolute -top-8 -right-8 w-64 h-64 rounded-full blur-3xl -z-10"
                             style="background:rgba(199,164,90,.20);"></div>
-                        <div class="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 w-40 sm:w-52 h-40 sm:h-52 rounded-full blur-3xl -z-10"
+                        <div class="absolute -bottom-8 -left-8 w-52 h-52 rounded-full blur-3xl -z-10"
                             style="background:rgba(63,107,79,.18);"></div>
 
                         <div
-                            class="relative aspect-square overflow-hidden rounded-2xl sm:rounded-[2rem] shadow-xl sm:shadow-2xl border-2 sm:border-4 border-white/80">
+                            class="relative aspect-square overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white/80">
                             <img src="assets/images/rumah-siffon/hero.png" alt="Produk Rumah Siffon" width="1024"
                                 height="1024" class="w-full h-full object-cover" loading="eager">
                         </div>
 
                         <div
-                            class="absolute -bottom-3 -left-2 sm:-bottom-4 sm:-left-3 lg:-left-5 bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl px-3 py-2 sm:px-4 sm:py-3 flex items-center gap-2.5 sm:gap-3">
-                            <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center"
+                            class="absolute -bottom-4 -left-3 lg:-left-5 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-full flex items-center justify-center"
                                 style="background:var(--siffon-green-soft);">
-                                <i data-lucide="cake-slice" class="w-4 h-4 sm:w-5 sm:h-5" style="color:var(--siffon-green);"></i>
+                                <i data-lucide="cake-slice" class="w-5 h-5" style="color:var(--siffon-green);"></i>
                             </span>
                             <div>
-                                <p class="text-[9px] sm:text-[10px] uppercase tracking-wider" style="color:#8A8175;">Pilihan</p>
-                                <p class="text-xs sm:text-sm font-bold" style="color:var(--siffon-brown);">Cake & Bakery</p>
+                                <p class="text-[10px] uppercase tracking-wider" style="color:#8A8175;">Pilihan</p>
+                                <p class="text-sm font-bold" style="color:var(--siffon-brown);">Cake & Bakery</p>
                             </div>
                         </div>
                     </div>
@@ -732,136 +727,136 @@
                 <div class="gold-line"></div>
             </div>
 
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 <!-- 1. Cake & Siffon -->
                 <a href="produk.html#cake"
-                    class="group card-hover bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between border border-transparent hover:border-emerald-200 block"
+                    class="group card-hover bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-transparent hover:border-emerald-200 block"
                     data-aos="fade-up" data-aos-delay="50">
                     <div>
-                        <div class="relative overflow-hidden h-32 sm:h-48 bg-[#FAF6EC]">
+                        <div class="relative overflow-hidden h-48 bg-[#FAF6EC]">
                             <img src="assets/images/rumah-siffon/hero.png" alt="Siffon & Cake Rumah Siffon"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 loading="lazy"
                                 onerror="this.onerror=null; this.src='assets/images/rumah-siffon/logo-rumah-siffon.png'; this.classList.add('object-contain','p-4');">
-                            <span class="absolute top-2 right-2 sm:top-3 sm:right-3 text-[9px] sm:text-[11px] font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-white/95 shadow-sm"
+                            <span class="absolute top-3 right-3 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white/95 shadow-sm"
                                 style="color:var(--siffon-green);">
                                 6 Menu
                             </span>
                         </div>
-                        <div class="p-3 sm:p-5 pb-1 sm:pb-2">
-                            <h3 class="text-sm sm:text-lg font-bold mb-1 transition group-hover:text-[#3F6B4F]" style="color:var(--siffon-brown);">
+                        <div class="p-5 pb-2">
+                            <h3 class="text-lg font-bold mb-1.5 transition group-hover:text-[#3F6B4F]" style="color:var(--siffon-brown);">
                                 Siffon & Cake
                             </h3>
-                            <p class="text-[10px] sm:text-xs leading-relaxed line-clamp-2" style="color:#81776A;">
+                            <p class="text-xs sm:text-sm leading-relaxed" style="color:#81776A;">
                                 Siffon reguler & mini, pillow cake, roll cake, spiku kenari, dan bolu pandan lembut.
                             </p>
                         </div>
                     </div>
-                    <div class="p-3 sm:p-5 pt-1 sm:pt-3">
-                        <span class="inline-flex items-center gap-1 text-[11px] sm:text-sm font-semibold transition group-hover:translate-x-1"
+                    <div class="p-5 pt-3">
+                        <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold transition group-hover:translate-x-1"
                             style="color:var(--siffon-green);">
                             Lihat 6 Produk
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </span>
                     </div>
                 </a>
 
                 <!-- 2. Proll Tape -->
                 <a href="produk.html#proll-tape"
-                    class="group card-hover bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between border border-transparent hover:border-emerald-200 block"
+                    class="group card-hover bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-transparent hover:border-emerald-200 block"
                     data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <div class="relative overflow-hidden h-32 sm:h-48 bg-[#FAF6EC]">
+                        <div class="relative overflow-hidden h-48 bg-[#FAF6EC]">
                             <img src="assets/images/rumah-siffon/about-02.png" alt="Proll Tape Khas Jember"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 loading="lazy"
                                 onerror="this.onerror=null; this.src='assets/images/rumah-siffon/logo-rumah-siffon.png'; this.classList.add('object-contain','p-4');">
-                            <span class="absolute top-2 right-2 sm:top-3 sm:right-3 text-[9px] sm:text-[11px] font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-white/95 shadow-sm"
+                            <span class="absolute top-3 right-3 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white/95 shadow-sm"
                                 style="color:var(--siffon-green);">
                                 4 Menu
                             </span>
                         </div>
-                        <div class="p-3 sm:p-5 pb-1 sm:pb-2">
-                            <h3 class="text-sm sm:text-lg font-bold mb-1 transition group-hover:text-[#3F6B4F]" style="color:var(--siffon-brown);">
+                        <div class="p-5 pb-2">
+                            <h3 class="text-lg font-bold mb-1.5 transition group-hover:text-[#3F6B4F]" style="color:var(--siffon-brown);">
                                 Proll Tape
                             </h3>
-                            <p class="text-[10px] sm:text-xs leading-relaxed line-clamp-2" style="color:#81776A;">
+                            <p class="text-xs sm:text-sm leading-relaxed" style="color:#81776A;">
                                 Olahan tape legit khas Jember rasa original, mix, brownies, dan coklat keju nikmat.
                             </p>
                         </div>
                     </div>
-                    <div class="p-3 sm:p-5 pt-1 sm:pt-3">
-                        <span class="inline-flex items-center gap-1 text-[11px] sm:text-sm font-semibold transition group-hover:translate-x-1"
+                    <div class="p-5 pt-3">
+                        <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold transition group-hover:translate-x-1"
                             style="color:var(--siffon-green);">
                             Lihat 4 Produk
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </span>
                     </div>
                 </a>
 
                 <!-- 3. Roti & Bakery -->
                 <a href="produk.html#bakery"
-                    class="group card-hover bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between border border-transparent hover:border-emerald-200 block"
+                    class="group card-hover bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-transparent hover:border-emerald-200 block"
                     data-aos="fade-up" data-aos-delay="150">
                     <div>
-                        <div class="relative overflow-hidden h-32 sm:h-48 bg-[#FAF6EC]">
+                        <div class="relative overflow-hidden h-48 bg-[#FAF6EC]">
                             <img src="assets/images/rumah-siffon/about-01.png" alt="Roti & Bakery Rumah Siffon"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 loading="lazy"
                                 onerror="this.onerror=null; this.src='assets/images/rumah-siffon/logo-rumah-siffon.png'; this.classList.add('object-contain','p-4');">
-                            <span class="absolute top-2 right-2 sm:top-3 sm:right-3 text-[9px] sm:text-[11px] font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-white/95 shadow-sm"
+                            <span class="absolute top-3 right-3 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white/95 shadow-sm"
                                 style="color:var(--siffon-green);">
                                 18 Menu
                             </span>
                         </div>
-                        <div class="p-3 sm:p-5 pb-1 sm:pb-2">
-                            <h3 class="text-sm sm:text-lg font-bold mb-1 transition group-hover:text-[#3F6B4F]" style="color:var(--siffon-brown);">
+                        <div class="p-5 pb-2">
+                            <h3 class="text-lg font-bold mb-1.5 transition group-hover:text-[#3F6B4F]" style="color:var(--siffon-brown);">
                                 Roti & Bakery
                             </h3>
-                            <p class="text-[10px] sm:text-xs leading-relaxed line-clamp-2" style="color:#81776A;">
-                                Roti abon, pizza, banana cup, sosis, sisir, dan aneka roti empuk setiap hari.
+                            <p class="text-xs sm:text-sm leading-relaxed" style="color:#81776A;">
+                                Roti abon, pizza, banana cup, sosis, sisir, dan aneka roti segar empuk setiap hari.
                             </p>
                         </div>
                     </div>
-                    <div class="p-3 sm:p-5 pt-1 sm:pt-3">
-                        <span class="inline-flex items-center gap-1 text-[11px] sm:text-sm font-semibold transition group-hover:translate-x-1"
+                    <div class="p-5 pt-3">
+                        <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold transition group-hover:translate-x-1"
                             style="color:var(--siffon-green);">
                             Lihat 18 Produk
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </span>
                     </div>
                 </a>
 
                 <!-- 4. Lain-lain & Dessert -->
                 <a href="produk.html#lain-lain"
-                    class="group card-hover bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between border border-transparent hover:border-emerald-200 block"
+                    class="group card-hover bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-transparent hover:border-emerald-200 block"
                     data-aos="fade-up" data-aos-delay="200">
                     <div>
-                        <div class="relative overflow-hidden h-32 sm:h-48 bg-[#FAF6EC]">
+                        <div class="relative overflow-hidden h-48 bg-[#FAF6EC]">
                             <img src="assets/images/rumah-siffon/slider-01s.png" alt="Lain-lain & Dessert Rumah Siffon"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 loading="lazy"
                                 onerror="this.onerror=null; this.src='assets/images/rumah-siffon/logo-rumah-siffon.png'; this.classList.add('object-contain','p-4');">
-                            <span class="absolute top-2 right-2 sm:top-3 sm:right-3 text-[9px] sm:text-[11px] font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-white/95 shadow-sm"
+                            <span class="absolute top-3 right-3 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white/95 shadow-sm"
                                 style="color:var(--siffon-green);">
                                 2 Menu
                             </span>
                         </div>
-                        <div class="p-3 sm:p-5 pb-1 sm:pb-2">
-                            <h3 class="text-sm sm:text-lg font-bold mb-1 transition group-hover:text-[#3F6B4F]" style="color:var(--siffon-brown);">
+                        <div class="p-5 pb-2">
+                            <h3 class="text-lg font-bold mb-1.5 transition group-hover:text-[#3F6B4F]" style="color:var(--siffon-brown);">
                                 Lain-lain / Dessert
                             </h3>
-                            <p class="text-[10px] sm:text-xs leading-relaxed line-clamp-2" style="color:#81776A;">
+                            <p class="text-xs sm:text-sm leading-relaxed" style="color:#81776A;">
                                 Pudding segar lembut dan silky pudding lumer di mulut untuk teman santai manis.
                             </p>
                         </div>
                     </div>
-                    <div class="p-3 sm:p-5 pt-1 sm:pt-3">
-                        <span class="inline-flex items-center gap-1 text-[11px] sm:text-sm font-semibold transition group-hover:translate-x-1"
+                    <div class="p-5 pt-3">
+                        <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold transition group-hover:translate-x-1"
                             style="color:var(--siffon-green);">
                             Lihat 2 Produk
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </span>
                     </div>
                 </a>
@@ -1079,7 +1074,7 @@
     <!-- WHATSAPP FLOATING BUTTON -->
     <a href="https://wa.me/6281234669091" target="_blank" rel="noopener noreferrer"
         aria-label="Chat WhatsApp Rumah Siffon"
-        class="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all z-[999]"
+        class="fixed bottom-6 right-5 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all"
         style="z-index:9998;background:#25D366;box-shadow:0 5px 22px rgba(37,211,102,.35);"
         title="Chat WhatsApp Rumah Siffon">
         <i class="fa-brands fa-whatsapp text-2xl text-white"></i>
