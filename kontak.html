@@ -363,215 +363,224 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-10">
             <div class="grid lg:grid-cols-5 gap-10">
 
-                <!-- Left: Info Cards -->
-                <div class="lg:col-span-2 space-y-5" data-aos="fade-up" data-aos-duration="800">
-
-                    <!-- WhatsApp -->
-                    <div class="contact-card bg-white rounded-2xl p-6 shadow-md flex items-start gap-4">
-                        <span class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                            style="background-color:rgba(37,211,102,0.1);">
-                            <i class="fa-brands fa-whatsapp text-xl" style="color:#25D366;"></i>
-                        </span>
-
-                        <div>
-                            <h3 class="font-bold text-base mb-1" style="color:var(--siffon-brown);">
-                                WhatsApp
+                <!-- Left: Info Cards (Styled exactly like Peta Lokasi Resmi) -->
+                <div class="lg:col-span-2" data-aos="fade-up" data-aos-duration="800">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 h-full flex flex-col">
+                        <!-- Card Header (matching Peta Lokasi Resmi) -->
+                        <div class="p-6 sm:p-8 border-b border-gray-100">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase mb-2"
+                                style="background-color:rgba(63,107,79,0.1);color:var(--siffon-primary);">
+                                <i class="fa-solid fa-address-book"></i> Kontak Resmi
+                            </span>
+                            <h3 class="text-xl sm:text-2xl font-bold" style="color:var(--siffon-brown);">
+                                Informasi & Layanan
                             </h3>
-
-                            <p class="text-sm mb-2" style="color:var(--siffon-warm);">
-                                Chat langsung dengan Rumah Siffon
+                            <p class="text-xs sm:text-sm mt-1" style="color:var(--siffon-warm);">
+                                Hubungi customer service atau kunjungi outlet Rumah Siffon
                             </p>
-
-                            <!-- NOMOR WHATSAPP RUMAH SIFFON -->
-                            <a href="https://wa.me/6281234669091" target="_blank" rel="noopener noreferrer"
-                                class="text-sm font-semibold inline-flex items-center gap-1.5"
-                                style="color:var(--siffon-primary);">
-                                +62 812-3466-9091
-                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                            </a>
                         </div>
-                    </div>
 
-                    <!-- Telepon -->
-                    <div class="contact-card bg-white rounded-2xl p-6 shadow-md flex items-start gap-4">
-                        <span class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                            style="background-color:rgba(63,107,79,0.1);">
-                            <i class="fa-solid fa-phone text-xl" style="color:var(--siffon-primary);"></i>
-                        </span>
-
-                        <div>
-                            <h3 class="font-bold text-base mb-1" style="color:var(--siffon-brown);">
-                                Telepon
-                            </h3>
-
-                            <p class="text-sm mb-2" style="color:var(--siffon-warm);">
-                                Hubungi kami untuk informasi produk dan pemesanan
-                            </p>
-
-                            <!-- NOMOR TELEPON RUMAH SIFFON -->
-                            <a href="tel:+6281234669091" class="text-sm font-semibold"
-                                style="color:var(--siffon-primary);">
-                                +62 812-3466-9091
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Cabang -->
-                    <div class="contact-card bg-white rounded-2xl p-6 shadow-md flex items-start gap-4">
-                        <span class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                            style="background-color:rgba(199,164,90,0.1);">
-                            <i class="fa-solid fa-shop text-xl" style="color:var(--siffon-accent);"></i>
-                        </span>
-
-                        <div>
-                            <h3 class="font-bold text-base mb-1" style="color:var(--siffon-brown);">
-                                Cabang
-                            </h3>
-
-                            <p class="text-sm leading-relaxed" style="color:var(--siffon-warm);">
-                                Rumah Siffon hadir di dua wilayah:
-                            </p>
-
-                            <div class="mt-2 space-y-1 text-sm" style="color:var(--siffon-warm);">
-                                <div>• Jember</div>
-                                <div>• Banyuwangi</div>
+                        <!-- Card Body with Contact Channels -->
+                        <div class="p-6 sm:p-8 space-y-4 flex-1 flex flex-col justify-between">
+                            <!-- WhatsApp -->
+                            <div class="p-4 sm:p-5 rounded-2xl bg-[#FAF6EC]/60 border border-gray-100/90 hover:border-[#3F6B4F]/30 hover:bg-[#FAF6EC] transition-all flex items-start gap-4">
+                                <span class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-sm"
+                                    style="background-color:#25D366;">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </span>
+                                <div class="min-w-0 flex-1">
+                                    <h4 class="font-bold text-sm sm:text-base mb-0.5" style="color:var(--siffon-brown);">
+                                        WhatsApp
+                                    </h4>
+                                    <p class="text-xs mb-2" style="color:var(--siffon-warm);">
+                                        Chat langsung pemesanan & tanya produk
+                                    </p>
+                                    <a href="https://wa.me/6281234669091" target="_blank" rel="noopener noreferrer"
+                                        class="text-xs sm:text-sm font-semibold inline-flex items-center gap-1.5 transition hover:underline"
+                                        style="color:var(--siffon-primary);">
+                                        +62 812-3466-9091
+                                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Alamat -->
-                    <div class="contact-card bg-white rounded-2xl p-6 shadow-md flex items-start gap-4">
-                        <span class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                            style="background-color:rgba(122,102,82,0.1);">
-                            <i class="fa-solid fa-location-dot text-xl" style="color:var(--siffon-warm);"></i>
-                        </span>
+                            <!-- Telepon -->
+                            <div class="p-4 sm:p-5 rounded-2xl bg-[#FAF6EC]/60 border border-gray-100/90 hover:border-[#3F6B4F]/30 hover:bg-[#FAF6EC] transition-all flex items-start gap-4">
+                                <span class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-sm"
+                                    style="background-color:var(--siffon-primary);">
+                                    <i class="fa-solid fa-phone text-sm"></i>
+                                </span>
+                                <div class="min-w-0 flex-1">
+                                    <h4 class="font-bold text-sm sm:text-base mb-0.5" style="color:var(--siffon-brown);">
+                                        Telepon
+                                    </h4>
+                                    <p class="text-xs mb-2" style="color:var(--siffon-warm);">
+                                        Informasi cepat produk dan ketersediaan
+                                    </p>
+                                    <a href="tel:+6281234669091"
+                                        class="text-xs sm:text-sm font-semibold inline-flex items-center gap-1.5 transition hover:underline"
+                                        style="color:var(--siffon-primary);">
+                                        +62 812-3466-9091
+                                    </a>
+                                </div>
+                            </div>
 
-                        <div class="flex-1">
-                            <h3 class="font-bold text-base mb-1" style="color:var(--siffon-brown);">
-                                Alamat Toko
-                            </h3>
+                            <!-- Cabang -->
+                            <div class="p-4 sm:p-5 rounded-2xl bg-[#FAF6EC]/60 border border-gray-100/90 hover:border-[#3F6B4F]/30 hover:bg-[#FAF6EC] transition-all flex items-start gap-4">
+                                <span class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-sm"
+                                    style="background-color:var(--siffon-accent);">
+                                    <i class="fa-solid fa-shop text-sm"></i>
+                                </span>
+                                <div class="min-w-0 flex-1">
+                                    <h4 class="font-bold text-sm sm:text-base mb-0.5" style="color:var(--siffon-brown);">
+                                        Cabang Toko
+                                    </h4>
+                                    <p class="text-xs mb-2 leading-relaxed" style="color:var(--siffon-warm);">
+                                        Rumah Siffon siap melayani di 2 wilayah:
+                                    </p>
+                                    <div class="flex items-center gap-2 flex-wrap text-xs font-semibold">
+                                        <span class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200">
+                                            <i class="fa-solid fa-location-dot text-[10px] mr-1"></i> Jember
+                                        </span>
+                                        <span class="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-800 border border-amber-200">
+                                            <i class="fa-solid fa-location-dot text-[10px] mr-1"></i> Banyuwangi
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <p class="text-sm font-semibold mb-1" style="color:var(--siffon-primary);">
-                                Rumah Siffon
-                            </p>
-
-                            <p class="text-xs leading-relaxed mb-3" style="color:var(--siffon-warm);">
-                                Jl. Nasional Rte 3, Tembaan, Kepatihan, Kec. Kaliwates, Kabupaten Jember, Jawa Timur 68131
-                            </p>
-
-                            <a href="https://www.google.com/maps?q=-8.175492147152637,113.69884555384107" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white transition shadow-sm"
-                                style="background-color:var(--siffon-primary);"
-                                onmouseover="this.style.backgroundColor='var(--siffon-primary-dark)'"
-                                onmouseout="this.style.backgroundColor='var(--siffon-primary)'">
-                                <i class="fa-solid fa-diamond-turn-right text-xs"></i>
-                                Petunjuk Arah Google Maps
-                            </a>
+                            <!-- Alamat Toko -->
+                            <div class="p-4 sm:p-5 rounded-2xl bg-[#FAF6EC]/60 border border-gray-100/90 hover:border-[#3F6B4F]/30 hover:bg-[#FAF6EC] transition-all flex items-start gap-4">
+                                <span class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-sm"
+                                    style="background-color:var(--siffon-warm);">
+                                    <i class="fa-solid fa-location-dot text-sm"></i>
+                                </span>
+                                <div class="min-w-0 flex-1">
+                                    <h4 class="font-bold text-sm sm:text-base mb-0.5" style="color:var(--siffon-brown);">
+                                        Alamat Toko Jember
+                                    </h4>
+                                    <p class="text-xs leading-relaxed mb-3" style="color:var(--siffon-warm);">
+                                        Jl. Nasional Rte 3, Tembaan, Kepatihan, Kec. Kaliwates, Kabupaten Jember, Jawa Timur 68131
+                                    </p>
+                                    <a href="https://www.google.com/maps?q=-8.175492147152637,113.69884555384107" target="_blank" rel="noopener noreferrer"
+                                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white transition shadow-sm"
+                                        style="background-color:var(--siffon-primary);"
+                                        onmouseover="this.style.backgroundColor='var(--siffon-primary-dark)'"
+                                        onmouseout="this.style.backgroundColor='var(--siffon-primary)'">
+                                        <i class="fa-solid fa-diamond-turn-right text-[11px]"></i>
+                                        Petunjuk Arah Google Maps
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Contact Form -->
+                <!-- Right: Contact Form (Styled exactly like Peta Lokasi Resmi) -->
                 <div id="pesan" class="lg:col-span-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 h-full flex flex-col">
+                        <!-- Card Header (matching Peta Lokasi Resmi) -->
+                        <div class="p-6 sm:p-8 border-b border-gray-100">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase mb-2"
+                                style="background-color:rgba(63,107,79,0.1);color:var(--siffon-primary);">
+                                <i class="fa-brands fa-whatsapp"></i> Formulir Pemesanan
+                            </span>
+                            <h2 class="text-xl sm:text-2xl font-bold" style="color:var(--siffon-brown);">
+                                Kirim Pesan Cepat
+                            </h2>
+                            <p class="text-xs sm:text-sm mt-1" style="color:var(--siffon-warm);">
+                                Isi formulir di bawah ini, pesanan Anda akan otomatis diarahkan ke WhatsApp resmi Rumah Siffon.
+                            </p>
+                        </div>
 
-                    <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg">
+                        <!-- Form Body -->
+                        <div class="p-6 sm:p-8 flex-1">
+                            <form id="contactForm" onsubmit="handleSubmit(event)">
 
-                        <h2 class="text-2xl font-bold mb-2" style="color:var(--siffon-brown);">
-                            Kirim Pesan
-                        </h2>
+                                <div class="mb-5">
+                                    <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
+                                        Nama Lengkap *
+                                    </label>
 
-                        <p class="text-sm mb-8" style="color:var(--siffon-warm);">
-                            Isi formulir di bawah ini, kemudian pesan akan
-                            diarahkan ke WhatsApp Rumah Siffon.
-                        </p>
+                                    <input type="text" id="nameInput" required placeholder="Masukkan nama Anda"
+                                        class="form-input w-full px-4 py-3 rounded-xl border text-sm"
+                                        style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);">
+                                </div>
 
-                        <form id="contactForm" onsubmit="handleSubmit(event)">
+                                <div class="mb-5">
+                                    <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
+                                        Nomor Telepon *
+                                    </label>
 
-                            <div class="mb-5">
-                                <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
-                                    Nama Lengkap *
-                                </label>
+                                    <input type="tel" id="phoneInput" required placeholder="08xx-xxxx-xxxx"
+                                        class="form-input w-full px-4 py-3 rounded-xl border text-sm"
+                                        style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);">
+                                </div>
 
-                                <input type="text" id="nameInput" required placeholder="Masukkan nama Anda"
-                                    class="form-input w-full px-4 py-3 rounded-xl border text-sm"
-                                    style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);">
-                            </div>
+                                <div class="mb-5" id="productPickerContainer">
+                                    <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
+                                        Produk yang Dipesan *
+                                    </label>
 
-                            <div class="mb-5">
-                                <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
-                                    Nomor Telepon *
-                                </label>
+                                    <!-- Hidden input for actual value used by form validation & WhatsApp submission -->
+                                    <input type="hidden" id="productInput" name="produk" value="" required>
 
-                                <input type="tel" id="phoneInput" required placeholder="08xx-xxxx-xxxx"
-                                    class="form-input w-full px-4 py-3 rounded-xl border text-sm"
-                                    style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);">
-                            </div>
-
-                            <div class="mb-5" id="productPickerContainer">
-                                <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
-                                    Produk yang Dipesan *
-                                </label>
-
-                                <!-- Hidden input for actual value used by form validation & WhatsApp submission -->
-                                <input type="hidden" id="productInput" name="produk" value="" required>
-
-                                <!-- Custom Trigger Button (Clean & neat on both mobile & desktop) -->
-                                <button type="button" id="productPickerTrigger" onclick="openProductModal()"
-                                    class="form-input w-full px-4 py-3 rounded-xl border text-sm text-left flex items-center justify-between gap-3 transition-all cursor-pointer shadow-sm hover:border-[#3F6B4F]"
-                                    style="border-color:rgba(199,164,90,0.3);color:var(--siffon-brown);background-color:var(--siffon-cream);">
-                                    <div class="flex items-center gap-3 overflow-hidden min-w-0">
-                                        <span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 text-white shadow-sm"
-                                            style="background-color:var(--siffon-primary);">
-                                            <i class="fa-solid fa-cake-candles text-xs"></i>
-                                        </span>
-                                        <div class="truncate">
-                                            <span id="productPickerPlaceholder" class="block font-medium truncate text-gray-500">
-                                                Pilih produk yang ingin dipesan (30 Pilihan)
+                                    <!-- Custom Trigger Button (Clean & neat on both mobile & desktop) -->
+                                    <button type="button" id="productPickerTrigger" onclick="openProductModal()"
+                                        class="form-input w-full px-4 py-3 rounded-xl border text-sm text-left flex items-center justify-between gap-3 transition-all cursor-pointer shadow-sm hover:border-[#3F6B4F]"
+                                        style="border-color:rgba(199,164,90,0.3);color:var(--siffon-brown);background-color:var(--siffon-cream);">
+                                        <div class="flex items-center gap-3 overflow-hidden min-w-0">
+                                            <span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 text-white shadow-sm"
+                                                style="background-color:var(--siffon-primary);">
+                                                <i class="fa-solid fa-cake-candles text-xs"></i>
                                             </span>
-                                            <div id="productPickerSelected" class="hidden min-w-0">
-                                                <div class="flex items-center gap-2 flex-wrap">
-                                                    <span id="productPickerName" class="font-bold text-gray-900 block truncate text-sm"></span>
-                                                    <span id="productPickerCatBadge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800"></span>
+                                            <div class="truncate">
+                                                <span id="productPickerPlaceholder" class="block font-medium truncate text-gray-500">
+                                                    Pilih produk yang ingin dipesan (30 Pilihan)
+                                                </span>
+                                                <div id="productPickerSelected" class="hidden min-w-0">
+                                                    <div class="flex items-center gap-2 flex-wrap">
+                                                        <span id="productPickerName" class="font-bold text-gray-900 block truncate text-sm"></span>
+                                                        <span id="productPickerCatBadge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800"></span>
+                                                    </div>
+                                                    <span id="productPickerPrice" class="text-xs font-semibold text-[#3F6B4F] block mt-0.5"></span>
                                                 </div>
-                                                <span id="productPickerPrice" class="text-xs font-semibold text-[#3F6B4F] block mt-0.5"></span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="flex items-center gap-2 shrink-0">
-                                        <span id="productPickerChangeBtn" class="hidden text-xs font-semibold text-[#3F6B4F] bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-200">
-                                            Ubah
-                                        </span>
-                                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-200" id="productPickerArrow"></i>
-                                    </div>
+                                        <div class="flex items-center gap-2 shrink-0">
+                                            <span id="productPickerChangeBtn" class="hidden text-xs font-semibold text-[#3F6B4F] bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-200">
+                                                Ubah
+                                            </span>
+                                            <i class="fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-200" id="productPickerArrow"></i>
+                                        </div>
+                                    </button>
+                                    <p id="productInputError" class="hidden mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1">
+                                        <i class="fa-solid fa-circle-exclamation"></i> Silakan pilih produk terlebih dahulu
+                                    </p>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
+                                        Pesan *
+                                    </label>
+
+                                    <textarea id="messageInput" required rows="4"
+                                        placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."
+                                        class="form-input w-full px-4 py-3 rounded-xl border text-sm resize-none"
+                                        style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);"></textarea>
+                                </div>
+
+                                <button type="submit"
+                                    class="px-6 py-3.5 rounded-xl text-white font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto shadow-md"
+                                    style="background-color:var(--siffon-primary);box-shadow:0 4px 14px rgba(63,107,79,0.3);"
+                                    onmouseover="this.style.backgroundColor='var(--siffon-primary-dark)'"
+                                    onmouseout="this.style.backgroundColor='var(--siffon-primary)'">
+                                    <i class="fa-brands fa-whatsapp text-base"></i>
+                                    Kirim Pesan WhatsApp
                                 </button>
-                                <p id="productInputError" class="hidden mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1">
-                                    <i class="fa-solid fa-circle-exclamation"></i> Silakan pilih produk terlebih dahulu
-                                </p>
-                            </div>
 
-                            <div class="mb-6">
-                                <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
-                                    Pesan *
-                                </label>
-
-                                <textarea id="messageInput" required rows="5"
-                                    placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."
-                                    class="form-input w-full px-4 py-3 rounded-xl border text-sm resize-none"
-                                    style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);"></textarea>
-                            </div>
-
-                            <button type="submit"
-                                class="px-5 py-3 rounded-xl text-white font-semibold text-sm transition-all duration-300 flex items-center gap-2"
-                                style="background-color:var(--siffon-primary);box-shadow:0 4px 14px rgba(63,107,79,0.3);"
-                                onmouseover="this.style.backgroundColor='var(--siffon-primary-dark)'"
-                                onmouseout="this.style.backgroundColor='var(--siffon-primary)'">
-
-                                <i class="fa-brands fa-whatsapp text-base"></i>
-                                Kirim
-
-                            </button>
-
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
