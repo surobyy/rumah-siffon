@@ -117,6 +117,83 @@
             opacity: 1;
             pointer-events: auto;
         }
+
+        /* Custom Product Picker & Bottom Sheet Modal */
+        #productModal {
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+        #productModal.hidden-modal {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        #productModal.open-modal {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        #productModalSheet {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        }
+        #productModal.hidden-modal #productModalSheet {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        @media (min-width: 640px) {
+            #productModal.hidden-modal #productModalSheet {
+                transform: translateY(20px) scale(0.96);
+                opacity: 0;
+            }
+            #productModal.open-modal #productModalSheet {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+        #productModal.open-modal #productModalSheet {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .custom-product-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-product-scrollbar::-webkit-scrollbar-track {
+            background: #FAF6EC;
+            border-radius: 8px;
+        }
+        .custom-product-scrollbar::-webkit-scrollbar-thumb {
+            background: #D4C5A9;
+            border-radius: 8px;
+        }
+        .custom-product-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #3F6B4F;
+        }
+
+        .modal-cat-pill.active {
+            background-color: var(--siffon-primary) !important;
+            color: #ffffff !important;
+            border-color: var(--siffon-primary) !important;
+            box-shadow: 0 2px 8px rgba(63, 107, 79, 0.25);
+        }
+
+        .product-item-card.selected {
+            border-color: var(--siffon-primary) !important;
+            background-color: #F4F8F5 !important;
+            box-shadow: 0 0 0 2px rgba(63, 107, 79, 0.2);
+        }
+        .product-item-card.selected .product-check-circle {
+            background-color: var(--siffon-primary) !important;
+            border-color: var(--siffon-primary) !important;
+            color: #ffffff !important;
+        }
     </style>
 </head>
 
@@ -411,56 +488,46 @@
                                     style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);">
                             </div>
 
-                            <div class="mb-5">
+                            <div class="mb-5" id="productPickerContainer">
                                 <label class="block text-sm font-semibold mb-2" style="color:var(--siffon-brown);">
-                                    Produk *
+                                    Produk yang Dipesan *
                                 </label>
 
-                                <select id="productInput" required
-                                    class="form-input w-full px-4 py-3 rounded-xl border text-sm"
-                                    style="border-color:rgba(199,164,90,0.2);color:var(--siffon-brown);background-color:var(--siffon-cream);">
+                                <!-- Hidden input for actual value used by form validation & WhatsApp submission -->
+                                <input type="hidden" id="productInput" name="produk" value="" required>
 
-                                    <option value="">Pilih produk yang ingin dipesan (30 Pilihan)</option>
-                                    <optgroup label="Siffon & Cake (6 Pilihan)">
-                                        <option value="Siffon Reguler (Pandan, Coklat, Keju) (Rp 35.000 - 40.000)">Siffon Reguler (Pandan, Coklat, Keju) - Rp 35.000 – 40.000</option>
-                                        <option value="Siffon Mini All Varian (Rp 23.000)">Siffon Mini All Varian - Rp 23.000</option>
-                                        <option value="Spiku Kenari (Rp 22.000)">Spiku Kenari - Rp 22.000</option>
-                                        <option value="Bolu Pandan (Rp 25.000)">Bolu Pandan - Rp 25.000</option>
-                                        <option value="Pillow Cake Chocolate & Keju (Rp 35.000)">Pillow Cake (Chocolate & Keju) - Rp 35.000</option>
-                                        <option value="Roll Cake (Coklat, Strawberry, Pandan) (Rp 25.000)">Roll Cake (Coklat, Strawberry, Pandan) - Rp 25.000</option>
-                                    </optgroup>
-                                    <optgroup label="Proll Tape Khas Jember (4 Pilihan)">
-                                        <option value="Prolltape Original (Rp 35.000)">Prolltape Original - Rp 35.000</option>
-                                        <option value="Proll Tape Mix (Rp 40.000)">Proll Tape Mix - Rp 40.000</option>
-                                        <option value="Proll Tape Brownis (Rp 45.000)">Proll Tape Brownis - Rp 45.000</option>
-                                        <option value="Proll Tape Coklat Keju (Rp 45.000)">Proll Tape Coklat Keju - Rp 45.000</option>
-                                    </optgroup>
-                                    <optgroup label="Roti & Bakery (18 Pilihan)">
-                                        <option value="Roti Abon (Rp 16.000)">Roti Abon - Rp 16.000</option>
-                                        <option value="Roti Pizza (Rp 11.000)">Roti Pizza - Rp 11.000</option>
-                                        <option value="Banana Cup Keju (Rp 10.000)">Banana Cup Keju - Rp 10.000</option>
-                                        <option value="Banana Cup Coklat (Rp 10.000)">Banana Cup Coklat - Rp 10.000</option>
-                                        <option value="Abon Roll (Rp 25.000)">Abon Roll - Rp 25.000</option>
-                                        <option value="Chococrun (Rp 12.000)">Chococrun - Rp 12.000</option>
-                                        <option value="Roti Zebra (Rp 10.000)">Roti Zebra - Rp 10.000</option>
-                                        <option value="Coating Nut (Rp 13.000)">Coating Nut - Rp 13.000</option>
-                                        <option value="Roti Sosis (Rp 10.000)">Roti Sosis - Rp 10.000</option>
-                                        <option value="Long Cheese (Rp 11.000)">Long Cheese - Rp 11.000</option>
-                                        <option value="Pisang Coklat (Rp 10.000)">Pisang Coklat - Rp 10.000</option>
-                                        <option value="Roti Strawberry (Rp 10.000)">Roti Strawberry - Rp 10.000</option>
-                                        <option value="Roti Blueberry (Rp 10.000)">Roti Blueberry - Rp 10.000</option>
-                                        <option value="Circle Coklat Medium (Rp 10.000)">Circle Coklat Medium - Rp 10.000</option>
-                                        <option value="Golden Cheese (Rp 15.000)">Golden Cheese - Rp 15.000</option>
-                                        <option value="Roti Sobek Tanpa Isi (Rp 10.000)">Roti Sobek Tanpa Isi - Rp 10.000</option>
-                                        <option value="Roti Sisir Original (Rp 12.000)">Roti Sisir Original - Rp 12.000</option>
-                                        <option value="Roti Kombinasi Coklat Keju (Rp 17.000)">Roti Kombinasi Coklat Keju - Rp 17.000</option>
-                                    </optgroup>
-                                    <optgroup label="Lain-lain / Dessert (2 Pilihan)">
-                                        <option value="Pudding (Rp 10.000)">Pudding - Rp 10.000</option>
-                                        <option value="Silky Pudding (Rp 15.000)">Silky Pudding - Rp 15.000</option>
-                                    </optgroup>
-                                    <option value="Custom Order / Lainnya">Custom Order / Lainnya</option>
-                                </select>
+                                <!-- Custom Trigger Button (Clean & neat on both mobile & desktop) -->
+                                <button type="button" id="productPickerTrigger" onclick="openProductModal()"
+                                    class="form-input w-full px-4 py-3 rounded-xl border text-sm text-left flex items-center justify-between gap-3 transition-all cursor-pointer shadow-sm hover:border-[#3F6B4F]"
+                                    style="border-color:rgba(199,164,90,0.3);color:var(--siffon-brown);background-color:var(--siffon-cream);">
+                                    <div class="flex items-center gap-3 overflow-hidden min-w-0">
+                                        <span class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 text-white shadow-sm"
+                                            style="background-color:var(--siffon-primary);">
+                                            <i class="fa-solid fa-cake-candles text-xs"></i>
+                                        </span>
+                                        <div class="truncate">
+                                            <span id="productPickerPlaceholder" class="block font-medium truncate text-gray-500">
+                                                Pilih produk yang ingin dipesan (30 Pilihan)
+                                            </span>
+                                            <div id="productPickerSelected" class="hidden min-w-0">
+                                                <div class="flex items-center gap-2 flex-wrap">
+                                                    <span id="productPickerName" class="font-bold text-gray-900 block truncate text-sm"></span>
+                                                    <span id="productPickerCatBadge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800"></span>
+                                                </div>
+                                                <span id="productPickerPrice" class="text-xs font-semibold text-[#3F6B4F] block mt-0.5"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2 shrink-0">
+                                        <span id="productPickerChangeBtn" class="hidden text-xs font-semibold text-[#3F6B4F] bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-200">
+                                            Ubah
+                                        </span>
+                                        <i class="fa-solid fa-chevron-down text-xs text-gray-400 transition-transform duration-200" id="productPickerArrow"></i>
+                                    </div>
+                                </button>
+                                <p id="productInputError" class="hidden mt-1.5 text-xs text-red-600 font-medium flex items-center gap-1">
+                                    <i class="fa-solid fa-circle-exclamation"></i> Silakan pilih produk terlebih dahulu
+                                </p>
                             </div>
 
                             <div class="mb-6">
@@ -634,7 +701,1144 @@
         });
     </script>
 
+
+    <!-- PRODUCT SELECTION BOTTOM SHEET / MODAL (Mobile Friendly) -->
+    <div id="productModal" class="hidden-modal fixed inset-0 z-[10000] flex items-end sm:items-center justify-center p-0 sm:p-4">
+        <!-- Backdrop Overlay -->
+        <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeProductModal()"></div>
+
+        <!-- Sheet / Dialog Card -->
+        <div id="productModalSheet"
+            class="relative w-full sm:max-w-xl bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] sm:max-h-[85vh] z-10">
+            
+            <!-- Mobile Swipe Bar Handle -->
+            <div class="sm:hidden pt-3 pb-1 flex justify-center cursor-pointer" onclick="closeProductModal()">
+                <div class="w-12 h-1.5 rounded-full bg-gray-300"></div>
+            </div>
+
+            <!-- Modal Header -->
+            <div class="px-5 py-3.5 border-b border-gray-100 flex items-center justify-between gap-3 bg-[#FAF8F5]">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white" style="background-color:var(--siffon-primary);">
+                        <i class="fa-solid fa-cake-candles text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-base sm:text-lg leading-tight">Pilih Produk Pesanan</h3>
+                        <p class="text-xs text-gray-500">Tersedia 30 varian kue & roti Rumah Siffon</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeProductModal()"
+                    class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-colors cursor-pointer"
+                    aria-label="Tutup dialog">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Sticky Search Bar -->
+            <div class="p-3.5 bg-white border-b border-gray-100">
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                        <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                    </span>
+                    <input type="text" id="productSearchInput" oninput="filterModalProducts()"
+                        placeholder="Cari produk (misal: Siffon, Prolltape, Roti, Abon)..."
+                        class="w-full pl-9 pr-9 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#3F6B4F] focus:ring-2 focus:ring-[#3F6B4F]/15 bg-[#FAF6EC]/40 text-gray-800">
+                    <button type="button" id="clearSearchBtn" onclick="clearProductSearch()"
+                        class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600">
+                        <i class="fa-solid fa-circle-xmark text-sm"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category Filter Tabs (Horizontal Scrollable Pills) -->
+            <div class="px-4 py-2.5 bg-[#FAF8F5] border-b border-gray-100 flex gap-2 overflow-x-auto no-scrollbar">
+                <button type="button" class="modal-cat-pill active shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all cursor-pointer bg-[#3F6B4F] text-white border-[#3F6B4F]"
+                    data-cat="all" onclick="filterModalCategory(this, 'all')">
+                    Semua (30)
+                </button>
+                <button type="button" class="modal-cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-gray-200 bg-white text-gray-700 hover:border-[#3F6B4F] transition-all cursor-pointer"
+                    data-cat="cake" onclick="filterModalCategory(this, 'cake')">
+                    Siffon & Cake (6)
+                </button>
+                <button type="button" class="modal-cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-gray-200 bg-white text-gray-700 hover:border-[#3F6B4F] transition-all cursor-pointer"
+                    data-cat="proll-tape" onclick="filterModalCategory(this, 'proll-tape')">
+                    Proll Tape (4)
+                </button>
+                <button type="button" class="modal-cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-gray-200 bg-white text-gray-700 hover:border-[#3F6B4F] transition-all cursor-pointer"
+                    data-cat="bakery" onclick="filterModalCategory(this, 'bakery')">
+                    Roti & Bakery (18)
+                </button>
+                <button type="button" class="modal-cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-gray-200 bg-white text-gray-700 hover:border-[#3F6B4F] transition-all cursor-pointer"
+                    data-cat="lain-lain" onclick="filterModalCategory(this, 'lain-lain')">
+                    Dessert (2)
+                </button>
+            </div>
+
+            <!-- Scrollable Products List -->
+            <div id="modalProductList" class="p-4 space-y-2.5 overflow-y-auto flex-1 custom-product-scrollbar overscroll-contain">
+                
+                    <!-- Product Item 1: Siffon Reguler -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Siffon Reguler (Pandan, Coklat, Keju) (Rp 35.000 - 40.000)"
+                        data-title="Siffon Reguler"
+                        data-price="Rp 35.000 – 40.000"
+                        data-category="cake"
+                        data-cat-label="Siffon & Cake"
+                        data-keywords="siffon reguler pandan  coklat  keju siffon   cake rp 35 000   40 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Siffon & Cake</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Siffon Reguler</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Pandan, Coklat, Keju</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 35.000 – 40.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 2: Siffon Mini -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Siffon Mini All Varian (Rp 23.000)"
+                        data-title="Siffon Mini"
+                        data-price="Rp 23.000"
+                        data-category="cake"
+                        data-cat-label="Siffon & Cake"
+                        data-keywords="siffon mini all varian rasa siffon   cake rp 23 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Siffon & Cake</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Siffon Mini</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">All Varian Rasa</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 23.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 3: Spiku Kenari -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Spiku Kenari (Rp 22.000)"
+                        data-title="Spiku Kenari"
+                        data-price="Rp 22.000"
+                        data-category="cake"
+                        data-cat-label="Siffon & Cake"
+                        data-keywords="spiku kenari lapis tradisional kenari siffon   cake rp 22 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Siffon & Cake</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Spiku Kenari</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Lapis Tradisional Kenari</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 22.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 4: Bolu Pandan -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Bolu Pandan (Rp 25.000)"
+                        data-title="Bolu Pandan"
+                        data-price="Rp 25.000"
+                        data-category="cake"
+                        data-cat-label="Siffon & Cake"
+                        data-keywords="bolu pandan aroma pandan asli harum siffon   cake rp 25 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Siffon & Cake</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Bolu Pandan</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Aroma Pandan Asli Harum</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 25.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 5: Pillow Cake -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Pillow Cake Chocolate & Keju (Rp 35.000)"
+                        data-title="Pillow Cake"
+                        data-price="Rp 35.000"
+                        data-category="cake"
+                        data-cat-label="Siffon & Cake"
+                        data-keywords="pillow cake chocolate   keju siffon   cake rp 35 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Siffon & Cake</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Pillow Cake</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Chocolate & Keju</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 35.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 6: Roll Cake -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Roll Cake (Coklat, Strawberry, Pandan) (Rp 25.000)"
+                        data-title="Roll Cake"
+                        data-price="Rp 25.000"
+                        data-category="cake"
+                        data-cat-label="Siffon & Cake"
+                        data-keywords="roll cake coklat  strawberry  pandan siffon   cake rp 25 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">Siffon & Cake</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Roll Cake</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Coklat, Strawberry, Pandan</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 25.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 7: Prolltape Original -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Prolltape Original (Rp 35.000)"
+                        data-title="Prolltape Original"
+                        data-price="Rp 35.000"
+                        data-category="proll-tape"
+                        data-cat-label="Proll Tape"
+                        data-keywords="prolltape original khas jember manis   legit proll tape rp 35 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-800">Proll Tape</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Prolltape Original</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Khas Jember Manis & Legit</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 35.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 8: Proll Tape Mix -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Proll Tape Mix (Rp 40.000)"
+                        data-title="Proll Tape Mix"
+                        data-price="Rp 40.000"
+                        data-category="proll-tape"
+                        data-cat-label="Proll Tape"
+                        data-keywords="proll tape mix kombinasi aneka topping proll tape rp 40 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-800">Proll Tape</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Proll Tape Mix</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Kombinasi Aneka Topping</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 40.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 9: Proll Tape Brownis -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Proll Tape Brownis (Rp 45.000)"
+                        data-title="Proll Tape Brownis"
+                        data-price="Rp 45.000"
+                        data-category="proll-tape"
+                        data-cat-label="Proll Tape"
+                        data-keywords="proll tape brownis paduan tape   coklat brownis proll tape rp 45 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-800">Proll Tape</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Proll Tape Brownis</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Paduan Tape & Coklat Brownis</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 45.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 10: Proll Tape Coklat Keju -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Proll Tape Coklat Keju (Rp 45.000)"
+                        data-title="Proll Tape Coklat Keju"
+                        data-price="Rp 45.000"
+                        data-category="proll-tape"
+                        data-cat-label="Proll Tape"
+                        data-keywords="proll tape coklat keju topping coklat   keju melimpah proll tape rp 45 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-800">Proll Tape</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Proll Tape Coklat Keju</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Topping Coklat & Keju Melimpah</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 45.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 11: Roti Abon -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Roti Abon (Rp 16.000)"
+                        data-title="Roti Abon"
+                        data-price="Rp 16.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="roti abon abon sapi gurih melimpah roti   bakery rp 16 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Roti Abon</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Abon Sapi Gurih Melimpah</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 16.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 12: Roti Pizza -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Roti Pizza (Rp 11.000)"
+                        data-title="Roti Pizza"
+                        data-price="Rp 11.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="roti pizza topping sosis   saus pizza roti   bakery rp 11 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Roti Pizza</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Topping Sosis & Saus Pizza</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 11.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 13: Banana Cup Keju -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Banana Cup Keju (Rp 10.000)"
+                        data-title="Banana Cup Keju"
+                        data-price="Rp 10.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="banana cup keju pisang manis tabur keju roti   bakery rp 10 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Banana Cup Keju</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Pisang Manis Tabur Keju</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 10.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 14: Banana Cup Coklat -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Banana Cup Coklat (Rp 10.000)"
+                        data-title="Banana Cup Coklat"
+                        data-price="Rp 10.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="banana cup coklat pisang manis saus coklat roti   bakery rp 10 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Banana Cup Coklat</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Pisang Manis Saus Coklat</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 10.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 15: Abon Roll -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Abon Roll (Rp 25.000)"
+                        data-title="Abon Roll"
+                        data-price="Rp 25.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="abon roll gulungan roti isi abon gurih roti   bakery rp 25 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Abon Roll</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Gulungan Roti Isi Abon Gurih</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 25.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 16: Chococrun -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Chococrun (Rp 12.000)"
+                        data-title="Chococrun"
+                        data-price="Rp 12.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="chococrun coklat renyah krispi roti   bakery rp 12 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Chococrun</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Coklat Renyah Krispi</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 12.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 17: Roti Zebra -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Roti Zebra (Rp 10.000)"
+                        data-title="Roti Zebra"
+                        data-price="Rp 10.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="roti zebra motif belang coklat manis roti   bakery rp 10 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Roti Zebra</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Motif Belang Coklat Manis</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 10.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 18: Coating Nut -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Coating Nut (Rp 13.000)"
+                        data-title="Coating Nut"
+                        data-price="Rp 13.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="coating nut balutan kacang gurih renyah roti   bakery rp 13 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Coating Nut</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Balutan Kacang Gurih Renyah</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 13.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 19: Roti Sosis -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Roti Sosis (Rp 10.000)"
+                        data-title="Roti Sosis"
+                        data-price="Rp 10.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="roti sosis sosis panggang lezat roti   bakery rp 10 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Roti Sosis</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Sosis Panggang Lezat</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 10.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 20: Long Cheese -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Long Cheese (Rp 11.000)"
+                        data-title="Long Cheese"
+                        data-price="Rp 11.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="long cheese roti panjang keju meleleh roti   bakery rp 11 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Long Cheese</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Roti Panjang Keju Meleleh</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 11.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 21: Pisang Coklat -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Pisang Coklat (Rp 10.000)"
+                        data-title="Pisang Coklat"
+                        data-price="Rp 10.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="pisang coklat pisang   coklat lumer roti   bakery rp 10 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Pisang Coklat</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Pisang & Coklat Lumer</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 10.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 22: Roti Strawberry -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Roti Strawberry (Rp 10.000)"
+                        data-title="Roti Strawberry"
+                        data-price="Rp 10.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="roti strawberry isi selai strawberry segar roti   bakery rp 10 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Roti Strawberry</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Isi Selai Strawberry Segar</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 10.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 23: Roti Blueberry -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Roti Blueberry (Rp 10.000)"
+                        data-title="Roti Blueberry"
+                        data-price="Rp 10.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="roti blueberry isi selai blueberry manis roti   bakery rp 10 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Roti Blueberry</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Isi Selai Blueberry Manis</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 10.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 24: Circle Coklat Medium -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Circle Coklat Medium (Rp 10.000)"
+                        data-title="Circle Coklat Medium"
+                        data-price="Rp 10.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="circle coklat medium roti bulat coklat lembut roti   bakery rp 10 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Circle Coklat Medium</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Roti Bulat Coklat Lembut</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 10.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 25: Golden Cheese -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Golden Cheese (Rp 15.000)"
+                        data-title="Golden Cheese"
+                        data-price="Rp 15.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="golden cheese keju panggang emas gurih roti   bakery rp 15 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Golden Cheese</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Keju Panggang Emas Gurih</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 15.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 26: Roti Sobek Tanpa Isi -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Roti Sobek Tanpa Isi (Rp 10.000)"
+                        data-title="Roti Sobek Tanpa Isi"
+                        data-price="Rp 10.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="roti sobek tanpa isi roti sobek polos super lembut roti   bakery rp 10 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Roti Sobek Tanpa Isi</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Roti Sobek Polos Super Lembut</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 10.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 27: Roti Sisir Original -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Roti Sisir Original (Rp 12.000)"
+                        data-title="Roti Sisir Original"
+                        data-price="Rp 12.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="roti sisir original roti sisir mentega tradisional roti   bakery rp 12 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Roti Sisir Original</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Roti Sisir Mentega Tradisional</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 12.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 28: Roti Kombinasi Coklat Keju -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Roti Kombinasi Coklat Keju (Rp 17.000)"
+                        data-title="Roti Kombinasi Coklat Keju"
+                        data-price="Rp 17.000"
+                        data-category="bakery"
+                        data-cat-label="Roti & Bakery"
+                        data-keywords="roti kombinasi coklat keju dua rasa coklat   keju roti   bakery rp 17 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Roti & Bakery</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Roti Kombinasi Coklat Keju</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Dua Rasa Coklat & Keju</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 17.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 29: Pudding -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Pudding (Rp 10.000)"
+                        data-title="Pudding"
+                        data-price="Rp 10.000"
+                        data-category="lain-lain"
+                        data-cat-label="Dessert"
+                        data-keywords="pudding puding manis   dingin segar dessert rp 10 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Dessert</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Pudding</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Puding Manis & Dingin Segar</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 10.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 30: Silky Pudding -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Silky Pudding (Rp 15.000)"
+                        data-title="Silky Pudding"
+                        data-price="Rp 15.000"
+                        data-category="lain-lain"
+                        data-cat-label="Dessert"
+                        data-keywords="silky pudding tekstur sutra lembut lumer dessert rp 15 000"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Dessert</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Silky Pudding</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Tekstur Sutra Lembut Lumer</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-[#EAF2ED] text-[#3F6B4F] font-extrabold text-xs sm:text-sm whitespace-nowrap border border-[#3F6B4F]/20">
+                                Rp 15.000
+                            </span>
+                        </div>
+                    </button>
+                    <!-- Product Item 31: Custom Order / Pesanan Khusus -->
+                    <button type="button"
+                        class="product-item-card w-full p-3 sm:p-3.5 rounded-2xl border border-gray-100 bg-white hover:border-[#3F6B4F] hover:bg-[#FAF6EC]/60 transition-all flex items-center justify-between gap-3 text-left shadow-sm active:scale-[0.99] cursor-pointer group"
+                        data-value="Custom Order / Lainnya"
+                        data-title="Custom Order / Pesanan Khusus"
+                        data-price="Konsultasi"
+                        data-category="custom"
+                        data-cat-label="Spesial"
+                        data-keywords="custom order   pesanan khusus kue ulang tahun  hampers  atau request khusus spesial konsultasi"
+                        onclick="selectProductItem(this)">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <div class="product-check-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center shrink-0 transition-colors">
+                                <i class="fa-solid fa-check text-[10px] opacity-0 transition-opacity"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-800">Spesial</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 text-sm mt-1 leading-snug group-hover:text-[#3F6B4F] transition-colors">Custom Order / Pesanan Khusus</h4>
+                                <p class="text-xs text-gray-500 truncate mt-0.5">Kue Ulang Tahun, Hampers, atau request khusus</p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 text-right">
+                            <span class="inline-block px-3 py-1.5 rounded-full bg-purple-100 text-purple-800 font-extrabold text-xs sm:text-sm whitespace-nowrap border border-purple-200">
+                                Konsultasi
+                            </span>
+                        </div>
+                    </button>
+
+                <!-- Empty State -->
+                <div id="productNotFound" class="hidden py-10 px-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gray-100 text-gray-400 mx-auto flex items-center justify-center text-lg mb-3">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </div>
+                    <p class="font-bold text-gray-800 text-sm">Produk tidak ditemukan</p>
+                    <p class="text-xs text-gray-500 mt-1 max-w-xs mx-auto">Coba cari dengan kata kunci lain atau pilih Custom Order.</p>
+                    <button type="button" onclick="selectCustomOrder()"
+                        class="mt-3 px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#3F6B4F] inline-flex items-center gap-1.5 shadow-sm">
+                        <i class="fa-solid fa-sparkles"></i> Pilih Custom Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-3 bg-[#FAF8F5] border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                <span id="productCountInfo">Menampilkan 30 produk</span>
+                <button type="button" onclick="closeProductModal()"
+                    class="px-4 py-1.5 rounded-xl font-semibold text-gray-600 hover:bg-gray-200 transition-colors">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT MODAL SCRIPT -->
     <script>
+        let currentModalCategory = 'all';
+
+        function openProductModal() {
+            const modal = document.getElementById('productModal');
+            if (!modal) return;
+            modal.classList.remove('hidden-modal');
+            modal.classList.add('open-modal');
+            document.body.style.overflow = 'hidden';
+
+            const arrow = document.getElementById('productPickerArrow');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+
+            const searchInput = document.getElementById('productSearchInput');
+            if (searchInput) {
+                searchInput.value = '';
+                filterModalProducts();
+            }
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('productModal');
+            if (!modal) return;
+            modal.classList.remove('open-modal');
+            modal.classList.add('hidden-modal');
+            document.body.style.overflow = '';
+
+            const arrow = document.getElementById('productPickerArrow');
+            if (arrow) arrow.style.transform = '';
+        }
+
+        function selectProductItem(btnEl) {
+            if (!btnEl) return;
+            const val = btnEl.getAttribute('data-value');
+            const title = btnEl.getAttribute('data-title');
+            const price = btnEl.getAttribute('data-price');
+            const catLabel = btnEl.getAttribute('data-cat-label');
+
+            applySelectedProduct(val, title, price, catLabel);
+            closeProductModal();
+        }
+
+        function selectCustomOrder() {
+            const customBtn = document.querySelector('.product-item-card[data-category="custom"]');
+            if (customBtn) {
+                selectProductItem(customBtn);
+            } else {
+                applySelectedProduct('Custom Order / Lainnya', 'Custom Order / Pesanan Khusus', 'Konsultasi', 'Spesial');
+                closeProductModal();
+            }
+        }
+
+        function applySelectedProduct(val, title, price, catLabel) {
+            const input = document.getElementById('productInput');
+            if (input) input.value = val;
+
+            const placeholder = document.getElementById('productPickerPlaceholder');
+            const selectedBox = document.getElementById('productPickerSelected');
+            const nameEl = document.getElementById('productPickerName');
+            const priceEl = document.getElementById('productPickerPrice');
+            const badgeEl = document.getElementById('productPickerCatBadge');
+            const changeBtn = document.getElementById('productPickerChangeBtn');
+            const errorEl = document.getElementById('productInputError');
+            const triggerBtn = document.getElementById('productPickerTrigger');
+
+            if (placeholder) placeholder.classList.add('hidden');
+            if (selectedBox) selectedBox.classList.remove('hidden');
+            if (nameEl) nameEl.textContent = title;
+            if (priceEl) priceEl.textContent = price;
+            if (badgeEl) badgeEl.textContent = catLabel || 'Produk';
+            if (changeBtn) changeBtn.classList.remove('hidden');
+
+            if (errorEl) errorEl.classList.add('hidden');
+            if (triggerBtn) {
+                triggerBtn.style.borderColor = 'rgba(63, 107, 79, 0.4)';
+                triggerBtn.style.backgroundColor = '#FAF6EC';
+            }
+
+            // Update card selection highlights in modal
+            document.querySelectorAll('.product-item-card').forEach(card => {
+                const cardVal = card.getAttribute('data-value');
+                const checkIcon = card.querySelector('.product-check-circle i');
+                if (cardVal === val) {
+                    card.classList.add('selected');
+                    if (checkIcon) checkIcon.classList.remove('opacity-0');
+                } else {
+                    card.classList.remove('selected');
+                    if (checkIcon) checkIcon.classList.add('opacity-0');
+                }
+            });
+        }
+
+        function filterModalCategory(pillBtn, cat) {
+            currentModalCategory = cat;
+            document.querySelectorAll('.modal-cat-pill').forEach(btn => {
+                btn.classList.remove('active', 'bg-[#3F6B4F]', 'text-white', 'border-[#3F6B4F]');
+                btn.classList.add('bg-white', 'text-gray-700', 'border-gray-200');
+            });
+            pillBtn.classList.add('active', 'bg-[#3F6B4F]', 'text-white', 'border-[#3F6B4F]');
+            pillBtn.classList.remove('bg-white', 'text-gray-700', 'border-gray-200');
+
+            filterModalProducts();
+        }
+
+        function filterModalProducts() {
+            const searchInput = document.getElementById('productSearchInput');
+            const clearBtn = document.getElementById('clearSearchBtn');
+            const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+
+            if (clearBtn) {
+                if (query.length > 0) {
+                    clearBtn.classList.remove('hidden');
+                } else {
+                    clearBtn.classList.add('hidden');
+                }
+            }
+
+            const cards = document.querySelectorAll('.product-item-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                const cardKeywords = card.getAttribute('data-keywords') || '';
+                
+                const matchesCat = (currentModalCategory === 'all') || (cardCat === currentModalCategory);
+                const matchesQuery = (!query) || cardKeywords.includes(query);
+
+                if (matchesCat && matchesQuery) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            const emptyState = document.getElementById('productNotFound');
+            if (emptyState) {
+                if (visibleCount === 0) {
+                    emptyState.classList.remove('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                }
+            }
+
+            const countInfo = document.getElementById('productCountInfo');
+            if (countInfo) {
+                countInfo.textContent = 'Menampilkan ' + visibleCount + ' produk';
+            }
+        }
+
+        function clearProductSearch() {
+            const searchInput = document.getElementById('productSearchInput');
+            if (searchInput) {
+                searchInput.value = '';
+                searchInput.focus();
+                filterModalProducts();
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProductModal();
+            }
+        });
+
+        // Form Submission via WhatsApp
         function handleSubmit(e) {
             e.preventDefault();
 
@@ -643,8 +1847,20 @@
             const product = document.getElementById('productInput').value.trim();
             const message = document.getElementById('messageInput').value.trim();
 
-            if (!name || !phone || !product || !message) {
-                alert('Mohon lengkapi semua field!');
+            if (!product) {
+                const errorEl = document.getElementById('productInputError');
+                const triggerBtn = document.getElementById('productPickerTrigger');
+                if (errorEl) errorEl.classList.remove('hidden');
+                if (triggerBtn) {
+                    triggerBtn.style.borderColor = '#ef4444';
+                    triggerBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                openProductModal();
+                return;
+            }
+
+            if (!name || !phone || !message) {
+                alert('Mohon lengkapi semua field yang berbintang (*)!');
                 return;
             }
 
@@ -663,49 +1879,62 @@
             window.open(waUrl, '_blank');
 
             const btn = e.target.querySelector('button[type="submit"]');
-            const originalHTML = btn.innerHTML;
+            if (btn) {
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Membuka WhatsApp...';
+                btn.style.backgroundColor = '#25D366';
 
-            btn.innerHTML =
-                '<i class="fa-solid fa-check"></i> Membuka WhatsApp...';
-
-            btn.style.backgroundColor = '#25D366';
-
-            setTimeout(() => {
-                btn.innerHTML = originalHTML;
-                btn.style.backgroundColor = '';
-                e.target.reset();
-                lucide.createIcons();
-            }, 3000);
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.backgroundColor = '';
+                    e.target.reset();
+                    // Reset custom product picker display
+                    const placeholder = document.getElementById('productPickerPlaceholder');
+                    const selectedBox = document.getElementById('productPickerSelected');
+                    const changeBtn = document.getElementById('productPickerChangeBtn');
+                    const triggerBtn = document.getElementById('productPickerTrigger');
+                    document.getElementById('productInput').value = '';
+                    if (placeholder) placeholder.classList.remove('hidden');
+                    if (selectedBox) selectedBox.classList.add('hidden');
+                    if (changeBtn) changeBtn.classList.add('hidden');
+                    if (triggerBtn) {
+                        triggerBtn.style.borderColor = 'rgba(199,164,90,0.3)';
+                        triggerBtn.style.backgroundColor = 'var(--siffon-cream)';
+                    }
+                    if (window.lucide) lucide.createIcons();
+                }, 3000);
+            }
         }
 
-        // Auto-select product from URL parameter
+        // Auto-select product from URL parameter (?produk=...)
         document.addEventListener('DOMContentLoaded', function () {
             try {
                 const params = new URLSearchParams(window.location.search);
                 const requestedProduct = params.get('produk');
                 if (requestedProduct) {
-                    const selectEl = document.getElementById('productInput');
-                    if (selectEl) {
-                        const decoded = decodeURIComponent(requestedProduct).toLowerCase().trim();
-                        let matched = false;
-                        for (let i = 0; i < selectEl.options.length; i++) {
-                            const optText = selectEl.options[i].text.toLowerCase();
-                            const optVal = selectEl.options[i].value.toLowerCase();
-                            if (optText.includes(decoded) || optVal.includes(decoded)) {
-                                selectEl.selectedIndex = i;
-                                matched = true;
-                                break;
-                            }
+                    const decoded = decodeURIComponent(requestedProduct).toLowerCase().trim();
+                    const cards = document.querySelectorAll('.product-item-card');
+                    let matched = false;
+
+                    for (let i = 0; i < cards.length; i++) {
+                        const cardVal = (cards[i].getAttribute('data-value') || '').toLowerCase();
+                        const cardTitle = (cards[i].getAttribute('data-title') || '').toLowerCase();
+                        if (cardVal.includes(decoded) || cardTitle.includes(decoded) || decoded.includes(cardTitle)) {
+                            selectProductItem(cards[i]);
+                            matched = true;
+                            break;
                         }
-                        if (!matched) {
-                            selectEl.value = 'Custom Order / Lainnya';
-                            const msgInput = document.getElementById('messageInput');
-                            if (msgInput) msgInput.value = 'Halo, saya ingin memesan produk: ' + decodeURIComponent(requestedProduct);
-                        }
-                        const formCard = document.getElementById('contactForm');
-                        if (formCard) {
-                            formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }
+                    }
+
+                    if (!matched) {
+                        selectCustomOrder();
+                        const msgInput = document.getElementById('messageInput');
+                        if (msgInput) msgInput.value = 'Halo, saya ingin memesan: ' + decodeURIComponent(requestedProduct);
+                    }
+
+                    const formCard = document.getElementById('contactForm');
+                    if (formCard) {
+                        formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                 }
             } catch (err) {
